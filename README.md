@@ -1,7 +1,5 @@
 # Brigadeiros do João - Site de Doces Artesanais
 
-![Brigadeiros do João Preview](https://i.imgur.com/EXAMPLO.jpg) <!-- Adicione uma imagem de preview -->
-
 ## 📝 Descrição
 Site institucional para a marca "Brigadeiros do João", um negócio de doces artesanais especializado em brigadeiros gourmet. O site foi desenvolvido para apresentar os produtos, contar a história do negócio e facilitar o contato via WhatsApp e Instagram.
 
@@ -53,4 +51,4 @@ Atualize os links de contato (WhatsApp e Instagram)
 Este projeto está licenciado sob a licença MIT.
 
 ## Créditos 
-Desenvolvido por Carlos Jhonne
+Desenvolvido por Carlos Jhonne.

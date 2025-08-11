@@ -36,7 +36,7 @@ O site foi cuidadosamente desenvolvido para funcionar perfeitamente em:
 - Tablets
 - Desktops
 
-✉️ Personalização
+## ✉️ Personalização
 Para personalizar o site para seu negócio:
 
 Substitua as imagens na pasta /img
@@ -47,7 +47,7 @@ Altere as cores no CSS (seção :root)
 
 Atualize os links de contato (WhatsApp e Instagram)
 
-📄 Licença
+## 📄 Licença
 Este projeto está licenciado sob a licença MIT.
 
 ## Créditos 

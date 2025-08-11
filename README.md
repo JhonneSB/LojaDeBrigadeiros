@@ -1,73 +1,56 @@
-# 🍫 Brigadeiros do João - Site de Venda de Doces
+# Brigadeiros do João - Site de Doces Artesanais
 
+![Brigadeiros do João Preview](https://i.imgur.com/EXAMPLO.jpg) <!-- Adicione uma imagem de preview -->
 
-## 📌 Visão Geral
-Site profissional para divulgação e venda de brigadeiros artesanais, com foco em conversão via WhatsApp e design responsivo.
+## 📝 Descrição
+Site institucional para a marca "Brigadeiros do João", um negócio de doces artesanais especializado em brigadeiros gourmet. O site foi desenvolvido para apresentar os produtos, contar a história do negócio e facilitar o contato via WhatsApp e Instagram.
 
-## ✨ Funcionalidades Principais
-- **Catálogo de Produtos** com fotos em alta qualidade
-- **Links Diretos para WhatsApp** com mensagem automática
-- **Design 100% Responsivo** (mobile-first)
-- **Botão Flutuante** de contato
-- **SEO Otimizado** para buscas locais
+## ✨ Funcionalidades
+- Catálogo de produtos com fotos, descrições e preços
+- Seção "Sobre Nós" com a história do negócio
+- Links diretos para WhatsApp com mensagem pré-formatada
+- Design responsivo para mobile e desktop
+- Botão flutuante de WhatsApp
+- Formulário de contato simplificado
 
 ## 🛠 Tecnologias Utilizadas
-| Tecnologia       | Uso                  |
-|------------------|----------------------|
-| HTML5            | Estrutura do site    |
-| CSS3             | Estilização avançada |
-| Bootstrap 5      | Layout responsivo    |
-| Font Awesome 6   | Ícones profissionais |
-| Google Fonts     | Família Poppins      |
+- HTML5
+- CSS3 (com variáveis)
+- Bootstrap 5
+- Font Awesome (ícones)
+- Google Fonts (Poppins)
 
-## 🎨 Guia de Estilo
-```css
-:root {
-  --vermelho: #D62839;
-  --marrom: #5E3023;
-  --bege: #F3E9DC;
-  --dourado: #F77F00;
-}
-📱 Responsividade
-Dispositivo	Breakpoint	Ajustes
-Mobile	<768px	Menu hambúrguer
-Tablet	768-992px	Ajuste de cards
-Desktop	>992px	Layout expandido
-⚡ Como Usar
-Clone o repositório:
+## 🎨 Design
+### Cores principais:
+- Vermelho: #D62839
+- Marrom: #5E3023
+- Bege: #F3E9DC
 
-bash
-git clone https://github.com/seu-user/brigadeiros-site.git
-Abra index.html no navegador
+### Fonte:
+- Poppins (400, 500, 600, 700)
 
-🔄 Personalização
-Produtos: Atualize as imagens na pasta /img
+### Ícones:
+- Font Awesome 6
 
-Contatos: Altere os links do WhatsApp/Instagram
+## 📱 Responsividade
+O site foi cuidadosamente desenvolvido para funcionar perfeitamente em:
+- Dispositivos móveis (a partir de 320px)
+- Tablets
+- Desktops
 
-Cores: Modifique as variáveis CSS em :root
+✉️ Personalização
+Para personalizar o site para seu negócio:
 
-📞 Seção de Contato (Exemplo)
-html
-<div class="contato">
-  <a href="https://wa.me/5547991983720?text=Olá,%20quero%20brigadeiros!">
-    <i class="fab fa-whatsapp"></i> WhatsApp
-  </a>
-  <a href="https://instagram.com/jcdepaula14">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
-</div>
-🚀 Deploy
-Recomendado para:
+Substitua as imagens na pasta /img
 
-GitHub Pages
+Atualize os textos no arquivo HTML
 
-Vercel
+Altere as cores no CSS (seção :root)
 
-Netlify
+Atualize os links de contato (WhatsApp e Instagram)
 
-📜 Licença
-MIT © Brigadeiros do João
+📄 Licença
+Este projeto está licenciado sob a licença MIT.
 
-✏️ Desenvolvido por: Carlos Jhonne
-
+--- Créditos ---
+Desenvolvido por Carlos Jhonne

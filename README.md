@@ -1,6 +1,5 @@
 # 🍫 Brigadeiros do João - Site de Venda de Doces
 
-![Preview do Site](https://i.imgur.com/EXEMPLO.jpg)
 
 ## 📌 Visão Geral
 Site profissional para divulgação e venda de brigadeiros artesanais, com foco em conversão via WhatsApp e design responsivo.
@@ -70,16 +69,5 @@ Netlify
 📜 Licença
 MIT © Brigadeiros do João
 
-💡 Dica Profissional: Use WebP para otimizar ainda mais as imagens!
-
 ✏️ Desenvolvido por: Carlos Jhonne
-📧 Contato: (47) 99198-3720
 
-text
-
-### Principais Vantagens:
-1. **Tudo em um só lugar**: Design, código e documentação integrados
-2. **Pronto para GitHub**: Formatação perfeita para visualização
-3. **Copiar e usar**: Basta substituir os placeholders
-4. **Mobile destacado**: Estratégia mobile-first evidente
-5. **SEO embutido**: Boas práticas já aplicadas

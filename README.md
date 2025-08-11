@@ -50,5 +50,7 @@ Atualize os links de contato (WhatsApp e Instagram)
 ## 📄 Licença
 Este projeto está licenciado sob a licença MIT.
 
-## Créditos 
-Desenvolvido por Carlos Jhonne.
+## ✉️ Contato
+
+Desenvolvido por [Carlos Jhonne](https://github.com/JhonneSB)  
+Email: carlosjhonne7@gmail.com

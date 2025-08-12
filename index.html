@@ -637,61 +637,139 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+        // JavaScript para Brigadeiros do João
+document.addEventListener('DOMContentLoaded', function() {
+    // Efeito de scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-            });
-        });
-
-        // Botão flutuante aparece após rolar
-        window.addEventListener('scroll', function () {
-            const btn = document.querySelector('.floating-btn');
-            btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-        });
-
-        // Efeito de gotejamento aleatório
-        function createDrip() {
-            const drip = document.createElement('div');
-            drip.style.position = 'fixed';
-            drip.style.width = '20px';
-            drip.style.height = Math.random() * 30 + 20 + 'px';
-            drip.style.background = 'linear-gradient(transparent, ' + getRandomPastelColor() + ')';
-            drip.style.left = Math.random() * window.innerWidth + 'px';
-            drip.style.top = '-50px';
-            drip.style.borderRadius = '0 0 10px 10px';
-            drip.style.zIndex = '0';
-            drip.style.opacity = '0.7';
-            drip.style.animation = 'fall ' + (Math.random() * 3 + 2) + 's linear forwards';
-            
-            document.body.appendChild(drip);
-            
-            setTimeout(() => {
-                drip.remove();
-            }, 5000);
-        }
-
-        function getRandomPastelColor() {
-            const colors = ['#A7C7E7', '#C1E1C1', '#FFD1DC', '#D8BFD8', '#D2B48C'];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-
-        // Criar gotejamentos periodicamente
-        setInterval(createDrip, 1000);
-
-        // Adicionar animação CSS
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fall {
-                to {
-                    transform: translateY(${window.innerHeight + 100}px);
+                
+                // Fecha o menu mobile se estiver aberto
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarToggler.click();
                 }
             }
-        `;
-        document.head.appendChild(style);
+        });
+    });
+    
+    // Efeito de navbar no scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Ativar tooltips do Bootstrap
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Animação de elementos quando entram na viewport
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.product-card, .about-img, .contact-card, .feature-icon');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                element.classList.add('animate__animated', 'animate__fadeInUp');
+            }
+        });
+    };
+    
+    // Verifica na carga inicial
+    animateOnScroll();
+    
+    // Verifica durante o scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Formatação automática para WhatsApp
+    document.querySelectorAll('[href*="whatsapp"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Verifica se já tem texto definido
+            if (!this.href.includes('text=') || this.href.includes('text=Olá')) {
+                const defaultMessage = encodeURIComponent('Olá João, gostaria de saber mais sobre seus brigadeiros!');
+                this.href = `https://wa.me/5547991983720?text=${defaultMessage}`;
+            }
+        });
+    });
+    
+    // Efeito de hover nos cards de produto
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Atualiza o ano no footer automaticamente
+    const yearElement = document.querySelector('footer p:first-of-type');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
+    }
+    
+    // Efeito de digitação no título hero (opcional)
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typingEffect = setInterval(() => {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingEffect);
+            }
+        }, 100);
+    }
+    
+    // Verifica se há parâmetros na URL para pré-selecionar um produto
+    const urlParams = new URLSearchParams(window.location.search);
+    const productParam = urlParams.get('product');
+    
+    if (productParam) {
+        setTimeout(() => {
+            const targetSection = document.getElementById('produtos');
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }, 500);
+    }
+});
+
+// Função para pré-preencher mensagem de WhatsApp com produto específico
+function orderProduct(productName, productPrice) {
+    const defaultMessage = `Olá João, gostaria de encomendar ${productName} (${productPrice})\n\n• Quantidade: \n• Data de entrega: \n• Endereço: \n\nObrigado!`;
+    const encodedMessage = encodeURIComponent(defaultMessage);
+    window.open(`https://wa.me/5547991983720?text=${encodedMessage}`, '_blank');
+}
     </script>
 </body>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brigadeiros do João | Doces Artesanais Premium</title>
+    <title>Brigadeiros do João | Doces Artesanais</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,81 +12,80 @@
             --azul-pastel: #A7C7E7;
             --verde-pastel: #C1E1C1;
             --marrom-claro: #D2B48C;
-            --marrom-brigadeiro: #8B4513;
             --rosa-pastel: #FFD1DC;
             --roxo-pastel: #D8BFD8;
             --bege-claro: #F5F5DC;
-            --creme: #FFF8E7;
             --texto: #5E3023;
-            --chocolate: #5C3317;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--creme);
+            background-color: var(--bege-claro);
             color: var(--texto);
             line-height: 1.6;
             background-image: url('https://transparenttextures.com/patterns/cream-paper.png');
-            overflow-x: hidden;
         }
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95) !important;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid var(--marrom-claro);
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.98) !important;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 3px solid var(--azul-pastel);
         }
 
         .btn-destaque {
-            background-color: var(--marrom-brigadeiro);
-            color: white;
-            font-weight: 600;
+            background-color: var(--azul-pastel);
+            color: var(--texto);
+            font-weight: 500;
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border: none;
-            transition: all 0.4s;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-destaque:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--marrom-claro);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
         }
 
         .btn-destaque:hover {
-            background-color: var(--chocolate);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+            background-color: #9abfdf;
+            color: var(--texto);
         }
 
-        .btn-destaque:active {
-            transform: translateY(1px);
+        .btn-destaque:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
                 url('https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            padding: 150px 0;
+            padding: 120px 0;
             border-radius: 0 0 30px 30px;
             position: relative;
             overflow: hidden;
-            color: white;
         }
 
-        .hero::before {
+        .hero:before {
             content: "";
             position: absolute;
             bottom: -50px;
             left: 0;
             width: 100%;
             height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"></path></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23D2B48C"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23D2B48C"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23D2B48C"></path></svg>');
             background-size: cover;
             background-repeat: no-repeat;
             z-index: 1;
@@ -96,159 +95,172 @@
             border: none;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
             background: white;
             position: relative;
-            margin-bottom: 20px;
         }
 
-        .product-card::before {
+        .product-card:before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--marrom-claro), var(--marrom-brigadeiro));
+            height: 10px;
+            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel), var(--rosa-pastel), var(--roxo-pastel));
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .product-img {
-            height: 250px;
+            height: 220px;
             object-fit: cover;
-            padding: 15px;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 10px;
             background-color: white;
-            transition: all 0.4s;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.03);
         }
 
         .price {
-            color: white;
+            color: var(--texto);
             font-weight: 700;
             font-size: 1.2rem;
-            background-color: var(--marrom-brigadeiro);
-            padding: 8px 20px;
+            background-color: var(--rosa-pastel);
+            padding: 5px 15px;
             border-radius: 20px;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
         }
 
         .floating-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
+            bottom: 25px;
+            right: 25px;
+            z-index: 100;
             width: 70px;
             height: 70px;
             border-radius: 50%;
             font-size: 28px;
-            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         .floating-btn:hover {
             transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
         }
 
         .section-title {
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
-            color: var(--chocolate);
+            padding-bottom: 10px;
         }
 
-        .section-title::after {
+        .section-title:after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--marrom-claro), var(--marrom-brigadeiro));
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel));
             border-radius: 3px;
+        }
+
+        .dev-credits {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .dev-credits:hover {
+            opacity: 1;
+        }
+
+        .drip-effect {
+            position: relative;
+        }
+
+        .drip-effect:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20"><path d="M0,0 C50,20 150,20 200,0 L200,20 C150,20 50,20 0,20 Z" fill="%23D2B48C"/></svg>');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
 
         .about-img {
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid white;
             position: relative;
             overflow: hidden;
-            transform: rotate(-2deg);
-            transition: all 0.4s;
         }
 
-        .about-img:hover {
-            transform: rotate(0deg) scale(1.02);
-        }
-
-        .about-img::before {
+        .about-img:before {
             content: "";
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: linear-gradient(45deg, var(--marrom-claro), var(--marrom-brigadeiro));
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--azul-pastel), var(--verde-pastel), var(--rosa-pastel));
             z-index: -1;
-            border-radius: 25px;
+            border-radius: 20px;
             opacity: 0.7;
         }
 
         .contact-card {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
             border: none;
         }
 
-        .contact-card::before {
+        .contact-card:before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--marrom-claro), var(--marrom-brigadeiro));
+            height: 10px;
+            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel), var(--rosa-pastel), var(--roxo-pastel));
         }
 
         .social-btn {
             border-radius: 50px;
-            padding: 15px 30px;
-            font-weight: 600;
+            padding: 12px 25px;
+            font-weight: 500;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            min-width: 200px;
         }
 
-        .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        .social-btn:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.4s;
+        }
+
+        .social-btn:hover:after {
+            transform: translateX(100%) skewX(-15deg);
         }
 
         .social-btn.whatsapp {
@@ -262,17 +274,16 @@
         }
 
         footer {
-            background: linear-gradient(90deg, var(--marrom-claro), var(--marrom-brigadeiro));
-            color: white;
+            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel));
+            color: var(--texto);
             position: relative;
-            padding-top: 80px;
-            margin-top: 100px;
+            padding-top: 50px;
         }
 
-        footer::before {
+        footer:before {
             content: "";
             position: absolute;
-            top: -80px;
+            top: -50px;
             left: 0;
             width: 100%;
             height: 100px;
@@ -281,67 +292,39 @@
             background-repeat: no-repeat;
         }
 
-        /* Efeitos de recheio escorrendo */
-        .drip {
-            position: absolute;
-            width: 30px;
-            height: 40px;
-            background: linear-gradient(to bottom, transparent, var(--marrom-brigadeiro));
-            border-radius: 0 0 15px 15px;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
-            z-index: 1;
-            animation: drip-fall 3s linear forwards;
+        /* Efeito de gotejamento nos títulos */
+        .drip-title {
+            position: relative;
+            display: inline-block;
         }
 
-        @keyframes drip-fall {
-            0% { transform: translateY(-50px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(calc(100vh + 50px)); opacity: 0; }
+        .drip-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 10%;
+            width: 80%;
+            height: 15px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 15"><path d="M0,0 C30,15 70,15 100,5 C130,15 170,15 200,0 L200,15 C170,15 130,15 100,5 C70,15 30,15 0,15 Z" fill="%23D2B48C"/></svg>');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
 
         /* Mobile */
-        @media (max-width: 992px) {
-            .hero {
-                padding: 120px 0;
-                background-attachment: scroll;
-            }
-            
-            .product-img {
-                height: 200px;
-            }
-        }
-
         @media (max-width: 768px) {
             .hero {
                 padding: 100px 0;
-                border-radius: 0;
+                border-radius: 0 0 20px 20px;
             }
-            
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
-            
-            .hero p {
-                font-size: 1.1rem;
+
+            .product-img {
+                height: 180px;
             }
-            
-            .section-title {
-                text-align: center;
-                display: block;
-            }
-            
-            .section-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 40%;
-            }
-            
-            .about-img {
-                margin-bottom: 30px;
-                transform: rotate(0deg);
-            }
-            
+
             .floating-btn {
                 width: 60px;
                 height: 60px;
@@ -349,31 +332,16 @@
                 bottom: 20px;
                 right: 20px;
             }
-            
-            .social-btn {
-                min-width: 160px;
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-        }
 
-        @media (max-width: 576px) {
-            .hero {
-                padding: 80px 0;
+            .section-title {
+                text-align: center;
+                display: block;
             }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .btn-destaque {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .price {
-                font-size: 1rem;
-                padding: 6px 15px;
+
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30%;
             }
         }
     </style>
@@ -382,12 +350,12 @@
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- Navbar Elegante -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="color: var(--chocolate); display: flex; align-items: center;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro" style="width: 35px; height: 35px; margin-right: 10px;">
-                <span style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; font-weight: 700;">Brigadeiros do João</span>
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--texto); display: flex; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro" style="width: 30px; height: 30px; margin-right: 8px;">
+                <span style="font-family: 'Dancing Script', cursive; font-size: 1.5rem;">Brigadeiros do João</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -395,29 +363,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-medium" href="#produtos">Cardápio</a>
+                        <a class="nav-link" href="#produtos">Cardápio</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-medium" href="#sobre">Sobre</a>
+                        <a class="nav-link" href="#sobre">Sobre</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-medium" href="#contato">Contato</a>
+                        <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Charmoso -->
     <section class="hero text-center" id="inicio">
         <div class="container position-relative">
-            <h1 class="fw-bold mb-4" style="font-family: 'Dancing Script', cursive; font-size: 4rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.3);">Brigadeiros Artesanais</h1>
-            <p class="lead mb-5" style="max-width: 700px; margin: 0 auto; font-size: 1.3rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Feitos com chocolate premium e muito carinho!</p>
-            <div class="mt-4">
-                <a href="#produtos" class="btn btn-destaque me-3">
+            <h1 class="fw-bold mb-4" style="color: var(--texto); font-family: 'Dancing Script', cursive; font-size: 3.5rem;">Brigadeiros Artesanais</h1>
+            <p class="lead mb-5" style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Feitos com ingredientes selecionados e técnica profissional!</p>
+            <div class="drip-effect">
+                <a href="#produtos" class="btn btn-destaque me-2">
                     <i class="fas fa-utensils me-2"></i> Ver Cardápio
                 </a>
-                <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="btn btn-success btn-destaque">
+            </div>
+            <div class="mt-3">
+                <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="btn btn-success" style="border-radius: 50px; padding: 10px 25px;">
                     <i class="fab fa-whatsapp me-2"></i> Encomendar
                 </a>
             </div>
@@ -425,11 +395,11 @@
     </section>
 
     <!-- Produtos -->
-    <section class="py-5 my-5" id="produtos" style="position: relative; overflow: hidden;">
+    <section class="py-5 my-5" id="produtos">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title" style="font-family: 'Dancing Script', cursive; font-size: 3rem;">Nossos Sabores</h2>
-                <p class="mt-3 lead">Delicie-se com nossos brigadeiros feitos com ingredientes premium</p>
+                <h2 class="section-title drip-title" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Nossos Sabores</h2>
+                <p class="mt-3">Delicie-se com nossos brigadeiros feitos com amor</p>
             </div>
 
             <div class="row g-4">
@@ -437,13 +407,13 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card product-card h-100">
                         <img src="https://img.cybercook.com.br/receitas/776/brigadeiro-tradicional-840x480.jpeg?q=75" class="card-img-top product-img" alt="Brigadeiro Tradicional">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold" style="color: var(--chocolate); font-family: 'Dancing Script', cursive; font-size: 2rem;">Tradicional</h4>
-                            <p class="card-text">O clássico brasileiro, cremoso e com granulado de chocolate, feito com leite condensado de qualidade e chocolate 50% cacau.</p>
-                            <div class="d-flex flex-column align-items-center mt-4">
-                                <span class="price mb-3">R$ 2,50 / un</span>
-                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Tradicionais%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-destaque">
-                                    <i class="fas fa-shopping-basket me-2"></i> Pedir Agora
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold" style="color: var(--texto); font-family: 'Dancing Script', cursive;">Tradicional</h4>
+                            <p class="card-text">O clássico brasileiro, cremoso e com granulado de chocolate.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price">R$ 2,50 / un</span>
+                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Tradicionais%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
+                                    Pedir Agora
                                 </a>
                             </div>
                         </div>
@@ -454,13 +424,13 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card product-card h-100">
                         <img src="https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop/public/srh_recipes/4a9a5e2c9f5d0a4c3f1f2f0e3d9b3e9.jpg.webp?itok=Y3Y8nz6C" class="card-img-top product-img" alt="Brigadeiro de Ninho">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold" style="color: var(--chocolate); font-family: 'Dancing Script', cursive; font-size: 2rem;">Ninho</h4>
-                            <p class="card-text">Cremoso e suave, feito com leite ninho integral e cobertura de leite em pó, com um toque especial de baunilha.</p>
-                            <div class="d-flex flex-column align-items-center mt-4">
-                                <span class="price mb-3">R$ 3,00 / un</span>
-                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20de%20Ninho%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-destaque">
-                                    <i class="fas fa-shopping-basket me-2"></i> Pedir Agora
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold" style="color: var(--texto); font-family: 'Dancing Script', cursive;">Ninho</h4>
+                            <p class="card-text">Cremoso e suave, feito com leite ninho e cobertura de leite em pó.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price">R$ 3,00 / un</span>
+                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20de%20Ninho%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
+                                    Pedir Agora
                                 </a>
                             </div>
                         </div>
@@ -471,13 +441,13 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card product-card h-100">
                         <img src="https://www.receiteria.com.br/wp-content/uploads/brigadeiro-gourmet-de-ninho-com-nutella-01.jpg" class="card-img-top product-img" alt="Brigadeiro Gourmet">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold" style="color: var(--chocolate); font-family: 'Dancing Script', cursive; font-size: 2rem;">Gourmet</h4>
-                            <p class="card-text">Chocolate 70% cacau com recheio especial de Nutella, Doce de Leite ou Morango, finalizado com toppings premium.</p>
-                            <div class="d-flex flex-column align-items-center mt-4">
-                                <span class="price mb-3">R$ 4,00 / un</span>
-                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Gourmets%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-destaque">
-                                    <i class="fas fa-shopping-basket me-2"></i> Pedir Agora
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold" style="color: var(--texto); font-family: 'Dancing Script', cursive;">Gourmet</h4>
+                            <p class="card-text">Chocolate 70% cacau com recheio especial de sua preferência.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price">R$ 4,00 / un</span>
+                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Gourmets%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
+                                    Pedir Agora
                                 </a>
                             </div>
                         </div>
@@ -488,7 +458,7 @@
     </section>
 
     <!-- Sobre -->
-    <section class="py-5 my-5 position-relative" id="sobre" style="background-color: var(--creme);">
+    <section class="py-5 my-5 bg-white position-relative" id="sobre" style="background-color: var(--bege-claro);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -497,28 +467,27 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="section-title mb-4" style="font-family: 'Dancing Script', cursive; font-size: 3rem;">Sobre Nós</h2>
-                    <p class="lead">Transformando momentos especiais em doces memórias desde 2018.</p>
+                    <h2 class="section-title mb-4" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Sobre Nós</h2>
                     <p>Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
-                    <p class="mb-4">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais em cada mordida.</p>
+                    <p class="mb-4">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
                     
                     <div class="mt-4">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="me-3" style="width: 60px; height: 60px; background-color: var(--rosa-pastel); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-heart fa-lg" style="color: var(--marrom-brigadeiro);"></i>
+                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--rosa-pastel); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-heart" style="color: var(--texto);"></i>
                             </div>
                             <div>
-                                <h5 style="color: var(--chocolate);">Feito com Amor</h5>
+                                <h5 style="color: var(--texto);">Feito com Amor</h5>
                                 <p class="mb-0">Cada doce é preparado com carinho e dedicação</p>
                             </div>
                         </div>
                         
                         <div class="d-flex align-items-center">
-                            <div class="me-3" style="width: 60px; height: 60px; background-color: var(--verde-pastel); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-award fa-lg" style="color: var(--marrom-brigadeiro);"></i>
+                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--verde-pastel); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-award" style="color: var(--texto);"></i>
                             </div>
                             <div>
-                                <h5 style="color: var(--chocolate);">Qualidade Premium</h5>
+                                <h5 style="color: var(--texto);">Qualidade Garantida</h5>
                                 <p class="mb-0">Ingredientes selecionados e técnicas profissionais</p>
                             </div>
                         </div>
@@ -532,32 +501,27 @@
     <section class="py-5 my-5" id="contato">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title" style="font-family: 'Dancing Script', cursive; font-size: 3rem;">Faça sua Encomenda</h2>
-                <p class="mt-3 lead">Entre em contato pelo WhatsApp ou Instagram</p>
+                <h2 class="section-title drip-title" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Faça sua Encomenda</h2>
+                <p class="mt-3">Entre em contato pelo WhatsApp ou Instagram</p>
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8">
+                <div class="col-md-8 col-lg-6">
                     <div class="card contact-card">
                         <div class="card-body p-4 p-md-5">
                             <div class="text-center mb-4">
-                                <h4 style="font-family: 'Dancing Script', cursive; color: var(--marrom-brigadeiro);">Como podemos te ajudar?</h4>
-                                <p class="mt-3">Estamos disponíveis para tirar dúvidas e receber seu pedido!</p>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20saber%20mais%20sobre%20seus%20brigadeiros!" class="social-btn whatsapp">
+                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20saber%20mais%20sobre%20seus%20brigadeiros!" class="social-btn whatsapp me-3 mb-3">
                                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                                 </a>
-                                <a href="https://www.instagram.com/jcdepaula14/#" class="social-btn instagram">
+                                <a href="https://www.instagram.com/jcdepaula14/#" class="social-btn instagram mb-3">
                                     <i class="fab fa-instagram me-2"></i> Instagram
                                 </a>
                             </div>
 
-                            <div class="text-center mt-5">
-                                <h5 class="mb-3" style="font-family: 'Dancing Script', cursive; color: var(--marrom-brigadeiro);">Informações</h5>
-                                <p><i class="fas fa-map-marker-alt me-2" style="color: var(--marrom-brigadeiro);"></i> Timbó - SC</p>
-                                <p><i class="fas fa-clock me-2" style="color: var(--marrom-brigadeiro);"></i> Atendimento: Sáb 9h30-15h | Dom 9h30-13h30</p>
+                            <div class="text-center mt-4">
+                                <h5 class="mb-3" style="font-family: 'Dancing Script', cursive;">Informações</h5>
+                                <p><i class="fas fa-map-marker-alt me-2" style="color: var(--azul-pastel);"></i> Timbó - SC</p>
+                                <p><i class="fas fa-clock me-2" style="color: var(--verde-pastel);"></i> Atendimento: Sáb 9h30-15h | Dom 9h30-13h30</p>
                             </div>
                         </div>
                     </div>
@@ -572,14 +536,11 @@
     </a>
 
     <!-- Footer -->
-    <footer class="py-5">
+    <footer class="py-4">
         <div class="container text-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro" style="width: 50px; height: 50px; margin-bottom: 15px;">
-            <h3 style="font-family: 'Dancing Script', cursive; color: white; margin-bottom: 20px;">Brigadeiros do João</h3>
-            <p class="mb-3">Doces artesanais feitos com amor e ingredientes de qualidade</p>
             <p class="mb-2">© 2025 Brigadeiros do João. Todos os direitos reservados.</p>
-            <p class="dev-credits mb-0" style="color: rgba(255,255,255,0.8);">
-                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank" style="color: white; text-decoration: underline;">Carlos Jhonne</a>
+            <p class="dev-credits mb-0">
+                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank" style="color: var(--texto); text-decoration: underline;">[Carlos Jhonne]</a>
             </p>
         </div>
     </footer>
@@ -598,218 +559,56 @@
             });
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        // Botão flutuante aparece após rolar
+        window.addEventListener('scroll', function () {
+            const btn = document.querySelector('.floating-btn');
+            btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
 
-        // Efeito de recheio escorrendo
+        // Efeito de gotejamento aleatório
         function createDrip() {
             const drip = document.createElement('div');
-            drip.className = 'drip';
-            
-            // Posição aleatória na horizontal
-            const leftPos = Math.random() * window.innerWidth;
-            
-            // Tamanho aleatório
-            const width = Math.random() * 20 + 15;
-            const height = Math.random() * 30 + 30;
-            
-            // Cor do chocolate
-            const chocolateShade = `hsl(${Math.random() * 10 + 20}, ${Math.random() * 20 + 60}%, ${Math.random() * 10 + 30}%)`;
-            
-            drip.style.left = `${leftPos}px`;
-            drip.style.width = `${width}px`;
-            drip.style.height = `${height}px`;
-            drip.style.background = `linear-gradient(to bottom, transparent, ${chocolateShade})`;
-            drip.style.animationDuration = `${Math.random() * 2 + 2}s`;
+            drip.style.position = 'fixed';
+            drip.style.width = '20px';
+            drip.style.height = Math.random() * 30 + 20 + 'px';
+            drip.style.background = 'linear-gradient(transparent, ' + getRandomPastelColor() + ')';
+            drip.style.left = Math.random() * window.innerWidth + 'px';
+            drip.style.top = '-50px';
+            drip.style.borderRadius = '0 0 10px 10px';
+            drip.style.zIndex = '0';
+            drip.style.opacity = '0.7';
+            drip.style.animation = 'fall ' + (Math.random() * 3 + 2) + 's linear forwards';
             
             document.body.appendChild(drip);
             
-            // Remover após a animação
             setTimeout(() => {
                 drip.remove();
             }, 5000);
         }
 
+        function getRandomPastelColor() {
+            const colors = ['#A7C7E7', '#C1E1C1', '#FFD1DC', '#D8BFD8', '#D2B48C'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
         // Criar gotejamentos periodicamente
-    setInterval(createDrip, 800);
+        setInterval(createDrip, 1000);
 
-    // Animação ao rolar a página
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.product-card, .about-img, .contact-card');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
-
-    // Configurar elementos para animação
-    window.addEventListener('load', function() {
-        const elementsToAnimate = document.querySelectorAll('.product-card, .about-img, .contact-card');
-        
-        elementsToAnimate.forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'all 0.6s ease-out';
-        });
-        
-        // Disparar uma primeira verificação
-        animateOnScroll();
-    });
-
-    // Observar scroll para animação
-    window.addEventListener('scroll', animateOnScroll);
-
-    // Contador de brigadeiros vendidos (efeito visual)
-    const counterElement = document.createElement('div');
-    counterElement.style.position = 'fixed';
-    counterElement.style.bottom = '20px';
-    counterElement.style.left = '20px';
-    counterElement.style.backgroundColor = 'var(--marrom-brigadeiro)';
-    counterElement.style.color = 'white';
-    counterElement.style.padding = '10px 15px';
-    counterElement.style.borderRadius = '20px';
-    counterElement.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-    counterElement.style.zIndex = '1000';
-    counterElement.style.fontSize = '0.9rem';
-    counterElement.style.display = 'none';
-    document.body.appendChild(counterElement);
-
-    // Mostrar o contador quando chegar na seção de produtos
-    window.addEventListener('scroll', function() {
-        const produtosSection = document.getElementById('produtos');
-        const produtosPosition = produtosSection.getBoundingClientRect().top;
-        
-        if (produtosPosition < window.innerHeight / 2) {
-            counterElement.style.display = 'block';
-            
-            // Animação do contador
-            let count = 0;
-            const target = 12500 + Math.floor(Math.random() * 2000);
-            const interval = setInterval(() => {
-                count += 37;
-                if (count >= target) {
-                    count = target;
-                    clearInterval(interval);
+        // Adicionar animação CSS
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(${window.innerHeight + 100}px);
                 }
-                counterElement.innerHTML = `<i class="fas fa-star me-1"></i> ${count.toLocaleString()} brigadeiros vendidos!`;
-            }, 50);
-            
-            // Remover o event listener após ser acionado uma vez
-            window.removeEventListener('scroll', arguments.callee);
-        }
-    });
-
-    // Botão de voltar ao topo
-    const backToTopButton = document.createElement('button');
-    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopButton.style.position = 'fixed';
-    backToTopButton.style.bottom = '100px';
-    backToTopButton.style.right = '20px';
-    backToTopButton.style.width = '50px';
-    backToTopButton.style.height = '50px';
-    backToTopButton.style.borderRadius = '50%';
-    backToTopButton.style.backgroundColor = 'var(--marrom-brigadeiro)';
-    backToTopButton.style.color = 'white';
-    backToTopButton.style.border = 'none';
-    backToTopButton.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-    backToTopButton.style.cursor = 'pointer';
-    backToTopButton.style.zIndex = '1000';
-    backToTopButton.style.opacity = '0';
-    backToTopButton.style.transition = 'all 0.3s';
-    backToTopButton.style.display = 'flex';
-    backToTopButton.style.alignItems = 'center';
-    backToTopButton.style.justifyContent = 'center';
-    document.body.appendChild(backToTopButton);
-
-    // Mostrar/ocultar botão ao rolar
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            backToTopButton.style.opacity = '1';
-        } else {
-            backToTopButton.style.opacity = '0';
-        }
-    });
-
-    // Voltar ao topo ao clicar
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Efeito de confete ao fazer pedido
-    function createConfetti() {
-        const confetti = document.createElement('div');
-        confetti.style.position = 'fixed';
-        confetti.style.width = '10px';
-        confetti.style.height = '10px';
-        confetti.style.backgroundColor = getRandomColor();
-        confetti.style.borderRadius = '50%';
-        confetti.style.zIndex = '10000';
-        confetti.style.top = '0';
-        confetti.style.left = Math.random() * window.innerWidth + 'px';
-        confetti.style.pointerEvents = 'none';
-        
-        document.body.appendChild(confetti);
-        
-        const animation = confetti.animate([
-            { top: '0', transform: 'scale(1)', opacity: 1 },
-            { top: window.innerHeight + 'px', transform: 'scale(0.5)', opacity: 0 }
-        ], {
-            duration: Math.random() * 2000 + 1000,
-            easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
-        });
-        
-        animation.onfinish = () => confetti.remove();
-    }
-
-    function getRandomColor() {
-        const colors = [
-            '#FFD700', // gold
-            '#FF6B6B', // coral
-            '#4ECDC4', // turquoise
-            '#45B7D1', // light blue
-            '#A5D6A7', // mint
-            '#FFAB91', // peach
-            '#CE93D8'  // lavender
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-
-    // Adicionar confete ao clicar em pedir
-    document.querySelectorAll('.btn-destaque').forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Não disparar se for um link para WhatsApp
-            if (!this.getAttribute('href').includes('whatsapp')) {
-                e.preventDefault();
             }
-            
-            // Criar confetes
-            for (let i = 0; i < 30; i++) {
-                setTimeout(createConfetti, i * 100);
-            }
-            
-            // Se for um link para WhatsApp, permitir a navegação após animação
-            if (this.getAttribute('href').includes('whatsapp')) {
-                setTimeout(() => {
-                    window.location.href = this.getAttribute('href');
-                }, 1000);
-            }
-        });
-    });
-</script>
-</body> </html>
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
+
+
+
+Gostei assim, dessa pegada, só deixe mais bonito, e aqle parte inicial tá muito branca, praticamente nem aparece a fptp de fundo. DEIXE MUIITOO MAIS BONITO E TOTALMENTE 100% RESPONSIVO PARA O MOBILE

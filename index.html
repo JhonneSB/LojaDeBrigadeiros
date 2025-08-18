@@ -267,6 +267,12 @@
             height: auto;
             max-height: 500px;
             object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
 
         .about-img::before {
@@ -280,6 +286,49 @@
             background-repeat: repeat-x;
             background-size: 100px 40px;
             z-index: 1;
+        }
+
+        /* Efeito de recheio caindo na foto */
+        .about-img-container {
+            position: relative;
+            overflow: visible;
+        }
+
+        .drip-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .drip {
+            position: absolute;
+            width: 15px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, var(--marrom-chocolate));
+            border-radius: 0 0 10px 10px;
+            animation: drip-fall 3s linear forwards;
+            opacity: 0.8;
+        }
+
+        @keyframes drip-fall {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
         }
 
         .contact-card {
@@ -349,34 +398,48 @@
             color: var(--rosa-pink);
         }
 
-        /* Gato melhorado */
+        /* Gato melhorado - estilo cartoon */
         .cat-element {
             position: absolute;
-            right: 20px;
-            bottom: 20px;
-            width: 100px;
-            height: 100px;
+            right: 30px;
+            bottom: 30px;
+            width: 120px;
+            height: 120px;
             z-index: 10;
             pointer-events: none;
+            transform-origin: bottom center;
+            animation: cat-float 3s ease-in-out infinite;
+        }
+
+        @keyframes cat-float {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
         }
 
         .cat-head {
             position: absolute;
-            width: 60px;
-            height: 50px;
-            background-color: var(--preto);
-            border-radius: 30px 30px 25px 25px;
+            width: 80px;
+            height: 70px;
+            background-color: #FFB6C1; /* Cor rosa claro */
+            border-radius: 40px 40px 35px 35px;
             bottom: 0;
             right: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid #FF8FAB;
         }
 
         .cat-ear-left, .cat-ear-right {
             position: absolute;
-            width: 20px;
-            height: 25px;
-            background-color: var(--preto);
-            top: -10px;
-            border-radius: 10px 10px 0 0;
+            width: 25px;
+            height: 35px;
+            background-color: #FFB6C1;
+            top: -15px;
+            border-radius: 15px 15px 0 0;
+            border: 3px solid #FF8FAB;
         }
 
         .cat-ear-left {
@@ -389,73 +452,133 @@
             transform: rotate(30deg);
         }
 
+        .cat-ear-inner {
+            position: absolute;
+            width: 15px;
+            height: 20px;
+            background-color: #FF8FAB;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px 10px 0 0;
+        }
+
         .cat-eye-left, .cat-eye-right {
             position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: var(--detalhe-gato);
+            width: 16px;
+            height: 16px;
+            background-color: var(--branco);
             border-radius: 50%;
-            top: 15px;
+            top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .cat-eye-left {
-            left: 15px;
+            left: 20px;
         }
 
         .cat-eye-right {
-            right: 15px;
+            right: 20px;
         }
 
         .cat-pupil-left, .cat-pupil-right {
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: var(--preto);
+            width: 8px;
+            height: 8px;
+            background-color: var(--marrom-chocolate);
             border-radius: 50%;
-            top: 3px;
+            top: 4px;
+            animation: cat-blink 4s infinite;
+        }
+
+        @keyframes cat-blink {
+            0%, 48%, 52%, 100% {
+                height: 8px;
+                top: 4px;
+            }
+            50% {
+                height: 2px;
+                top: 10px;
+            }
         }
 
         .cat-pupil-left {
-            left: 3px;
+            left: 4px;
         }
 
         .cat-pupil-right {
-            right: 3px;
+            right: 4px;
         }
 
         .cat-nose {
             position: absolute;
-            width: 8px;
-            height: 6px;
-            background-color: var(--rosa-pink);
+            width: 10px;
+            height: 8px;
+            background-color: #FF8FAB;
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            top: 25px;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cat-mouth {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            border-bottom: 2px solid #FF8FAB;
+            border-radius: 0 0 10px 10px;
+            top: 42px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .cat-whiskers {
             position: absolute;
-            width: 40px;
-            height: 10px;
-            top: 28px;
+            width: 60px;
+            height: 15px;
+            top: 38px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .cat-whisker {
             position: absolute;
-            width: 15px;
+            width: 20px;
             height: 1px;
-            background-color: var(--detalhe-gato);
+            background-color: var(--preto);
         }
 
         .cat-whisker.left-1 { top: 0; left: 0; transform: rotate(-15deg); }
-        .cat-whisker.left-2 { top: 3px; left: 0; transform: rotate(-5deg); }
-        .cat-whisker.left-3 { top: 6px; left: 0; transform: rotate(5deg); }
+        .cat-whisker.left-2 { top: 5px; left: 0; transform: rotate(-5deg); }
+        .cat-whisker.left-3 { top: 10px; left: 0; transform: rotate(5deg); }
         .cat-whisker.right-1 { top: 0; right: 0; transform: rotate(15deg); }
-        .cat-whisker.right-2 { top: 3px; right: 0; transform: rotate(5deg); }
-        .cat-whisker.right-3 { top: 6px; right: 0; transform: rotate(-5deg); }
+        .cat-whisker.right-2 { top: 5px; right: 0; transform: rotate(5deg); }
+        .cat-whisker.right-3 { top: 10px; right: 0; transform: rotate(-5deg); }
+
+        /* Coração flutuante do gato */
+        .cat-heart {
+            position: absolute;
+            top: -30px;
+            right: 30px;
+            color: #FF6B8B;
+            font-size: 1.5rem;
+            animation: heart-float 2s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes heart-float {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-30px) scale(1.2);
+                opacity: 0;
+            }
+        }
 
         .feature-box {
             display: flex;
@@ -512,6 +635,11 @@
             .about-img {
                 max-height: 400px;
             }
+            
+            .cat-element {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -542,19 +670,8 @@
             .cat-element {
                 width: 80px;
                 height: 80px;
-                right: 10px;
-                bottom: 10px;
-            }
-            
-            .cat-head {
-                width: 50px;
-                height: 40px;
                 right: 15px;
-            }
-            
-            .cat-ear-left, .cat-ear-right {
-                width: 15px;
-                height: 20px;
+                bottom: 15px;
             }
             
             .navbar-brand {
@@ -606,40 +723,7 @@
             }
             
             .cat-element {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .cat-head {
-                width: 40px;
-                height: 30px;
-                right: 10px;
-            }
-            
-            .cat-ear-left, .cat-ear-right {
-                width: 12px;
-                height: 15px;
-            }
-            
-            .cat-eye-left, .cat-eye-right {
-                width: 8px;
-                height: 8px;
-                top: 10px;
-            }
-            
-            .cat-pupil-left, .cat-pupil-right {
-                width: 4px;
-                height: 4px;
-            }
-            
-            .cat-nose {
-                width: 6px;
-                height: 4px;
-                top: 18px;
-            }
-            
-            .cat-whiskers {
-                top: 20px;
+                display: none; /* Esconde o gato em telas muito pequenas */
             }
         }
     </style>
@@ -688,10 +772,14 @@
                 </a>
             </div>
             
-            <!-- Elemento do gato melhorado -->
+            <!-- Elemento do gato melhorado - estilo cartoon -->
             <div class="cat-element">
-                <div class="cat-ear-left"></div>
-                <div class="cat-ear-right"></div>
+                <div class="cat-ear-left">
+                    <div class="cat-ear-inner"></div>
+                </div>
+                <div class="cat-ear-right">
+                    <div class="cat-ear-inner"></div>
+                </div>
                 <div class="cat-head">
                     <div class="cat-eye-left">
                         <div class="cat-pupil-left"></div>
@@ -700,6 +788,7 @@
                         <div class="cat-pupil-right"></div>
                     </div>
                     <div class="cat-nose"></div>
+                    <div class="cat-mouth"></div>
                     <div class="cat-whiskers">
                         <div class="cat-whisker left-1"></div>
                         <div class="cat-whisker left-2"></div>
@@ -708,6 +797,9 @@
                         <div class="cat-whisker right-2"></div>
                         <div class="cat-whisker right-3"></div>
                     </div>
+                </div>
+                <div class="cat-heart">
+                    <i class="fas fa-heart"></i>
                 </div>
             </div>
         </div>
@@ -779,14 +871,18 @@
     <!-- Sobre -->
     <section class="py-5 my-5 position-relative" id="sobre" style="background-color: var(--rosa-vibrante);">
         <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" style="color: var(--branco);">Sobre Nós</h2>
+            </div>
+            
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="about-img">
-                        <img src="Vendedor.png" alt="João fazendo brigadeiros" class="img-fluid">
+                    <div class="about-img-container">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="João fazendo brigadeiros" class="about-img">
+                        <div class="drip-effect" id="dripContainer"></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="section-title" style="color: var(--branco);">Sobre Nós</h2>
                     <p>Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
                     <p class="mb-4">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
                     
@@ -916,6 +1012,43 @@
             const btn = document.querySelector('.floating-btn');
             if (btn) {
                 btn.style.display = 'none';
+            }
+            
+            // Criar efeito de recheio caindo na foto sobre
+            const dripContainer = document.getElementById('dripContainer');
+            if (dripContainer) {
+                function createDrip() {
+                    const drip = document.createElement('div');
+                    drip.className = 'drip';
+                    drip.style.left = Math.random() * 100 + '%';
+                    drip.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+                    drip.style.width = (Math.random() * 10 + 8) + 'px';
+                    drip.style.height = (Math.random() * 40 + 30) + 'px';
+                    
+                    dripContainer.appendChild(drip);
+                    
+                    setTimeout(() => {
+                        drip.remove();
+                    }, 3000);
+                }
+                
+                // Criar gotejamentos periodicamente
+                setInterval(createDrip, 300);
+                
+                // Criar alguns gotejamentos iniciais
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(createDrip, i * 150);
+                }
+            }
+            
+            // Animação do coração do gato
+            const catHeart = document.querySelector('.cat-heart');
+            if (catHeart) {
+                setInterval(() => {
+                    catHeart.style.animation = 'none';
+                    void catHeart.offsetWidth; // Trigger reflow
+                    catHeart.style.animation = 'heart-float 2s ease-in-out infinite';
+                }, 5000);
             }
         });
     </script>

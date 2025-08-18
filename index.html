@@ -9,281 +9,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --azul-pastel: #A7C7E7;
-            --verde-pastel: #C1E1C1;
-            --marrom-claro: #D2B48C;
-            --rosa-pastel: #FFD1DC;
-            --roxo-pastel: #D8BFD8;
-            --bege-claro: #F5F5DC;
-            --texto: #5E3023;
+            --rosa-vibrante: #FF6B8B;
+            --rosa-pink: #FF8FAB;
+            --marrom-chocolate: #5E3023;
+            --preto: #2D2D2D;
+            --branco: #FFFFFF;
+            --detalhe-gato: #F8F8F8;
+            --texto: #2D2D2D;
+            --sombra: rgba(0, 0, 0, 0.1);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bege-claro);
+            background-color: var(--rosa-vibrante);
             color: var(--texto);
             line-height: 1.6;
-            background-image: url('https://transparenttextures.com/patterns/cream-paper.png');
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efeito de gostas de chocolate caindo */
+        .chocolate-drip {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(transparent, var(--marrom-chocolate));
+            border-radius: 0 0 10px 10px;
+            z-index: 0;
+            opacity: 0.7;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
         }
 
         .navbar {
-            background-color: white !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-bottom: 3px solid var(--azul-pastel);
+            background-color: var(--branco) !important;
+            box-shadow: 0 2px 15px var(--sombra);
+            border-bottom: 3px solid var(--rosa-pink);
         }
 
         .btn-destaque {
-            background-color: var(--azul-pastel);
-            color: var(--texto);
-            font-weight: 500;
+            background-color: var(--rosa-pink);
+            color: var(--branco);
+            font-weight: 600;
             border-radius: 50px;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border: none;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-        }
-
-        .btn-destaque:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--marrom-claro);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 143, 171, 0.4);
         }
 
         .btn-destaque:hover {
-            background-color: #9abfdf;
-            color: var(--texto);
-        }
-
-        .btn-destaque:hover:after {
-            transform: scaleX(1);
-            transform-origin: left;
+            background-color: #ff7a9b;
+            color: var(--branco);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 143, 171, 0.6);
         }
 
         .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+            background: linear-gradient(rgba(255, 107, 139, 0.9), rgba(255, 107, 139, 0.9)),
                 url('https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            padding: 120px 0;
-            border-radius: 0 0 30px 30px;
+            padding: 150px 0;
             position: relative;
             overflow: hidden;
         }
 
-        .hero:before {
+        .hero::before {
             content: "";
             position: absolute;
-            bottom: -50px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23D2B48C"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23D2B48C"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23D2B48C"></path></svg>');
-            background-size: cover;
-            background-repeat: no-repeat;
-            z-index: 1;
-        }
-
-        .product-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            background: white;
-            position: relative;
-        }
-
-        .product-card:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel), var(--rosa-pastel), var(--roxo-pastel));
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-img {
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 1px solid #f1f1f1;
-            padding: 10px;
-            background-color: white;
-        }
-
-        .price {
-            color: var(--texto);
-            font-weight: 700;
-            font-size: 1.2rem;
-            background-color: var(--rosa-pastel);
-            padding: 5px 15px;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .floating-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 100;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            font-size: 28px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel));
-            border-radius: 3px;
-        }
-
-        .dev-credits {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .dev-credits:hover {
-            opacity: 1;
-        }
-
-        .drip-effect {
-            position: relative;
-        }
-
-        .drip-effect:after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20"><path d="M0,0 C50,20 150,20 200,0 L200,20 C150,20 50,20 0,20 Z" fill="%23D2B48C"/></svg>');
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-        }
-
-        .about-img {
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 5px solid white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-img:before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
             bottom: -10px;
-            background: linear-gradient(45deg, var(--azul-pastel), var(--verde-pastel), var(--rosa-pastel));
-            z-index: -1;
-            border-radius: 20px;
-            opacity: 0.7;
-        }
-
-        .contact-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-            border: none;
-        }
-
-        .contact-card:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel), var(--rosa-pastel), var(--roxo-pastel));
-        }
-
-        .social-btn {
-            border-radius: 50px;
-            padding: 12px 25px;
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-btn:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-100%) skewX(-15deg);
-            transition: transform 0.4s;
-        }
-
-        .social-btn:hover:after {
-            transform: translateX(100%) skewX(-15deg);
-        }
-
-        .social-btn.whatsapp {
-            background-color: #25D366;
-            color: white;
-        }
-
-        .social-btn.instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            color: white;
-        }
-
-        footer {
-            background: linear-gradient(90deg, var(--azul-pastel), var(--verde-pastel));
-            color: var(--texto);
-            position: relative;
-            padding-top: 50px;
-        }
-
-        footer:before {
-            content: "";
-            position: absolute;
-            top: -50px;
             left: 0;
             width: 100%;
             height: 100px;
@@ -292,37 +94,216 @@
             background-repeat: no-repeat;
         }
 
-        /* Efeito de gotejamento nos títulos */
-        .drip-title {
+        .product-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--sombra);
+            transition: all 0.3s ease;
+            background: var(--branco);
             position: relative;
-            display: inline-block;
+            z-index: 1;
         }
 
-        .drip-title:after {
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            height: 250px;
+            object-fit: cover;
+            background-color: var(--branco);
+            position: relative;
+        }
+
+        .product-img::before {
             content: "";
             position: absolute;
-            bottom: -15px;
-            left: 10%;
-            width: 80%;
-            height: 15px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 15"><path d="M0,0 C30,15 70,15 100,5 C130,15 170,15 200,0 L200,15 C170,15 130,15 100,5 C70,15 30,15 0,15 Z" fill="%23D2B48C"/></svg>');
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0,0 C20,20 80,20 100,0 L100,20 C80,20 20,20 0,20 Z" fill="%23FF6B8B"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 100px 20px;
+            z-index: 2;
+        }
+
+        .price {
+            color: var(--branco);
+            font-weight: 700;
+            font-size: 1.2rem;
+            background-color: var(--marrom-chocolate);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(94, 48, 35, 0.3);
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            font-size: 28px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            color: var(--branco);
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: var(--branco);
+            border-radius: 2px;
+        }
+
+        .about-img {
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border: 8px solid var(--branco);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30"><path d="M0,0 C20,30 80,30 100,0 L100,30 C80,30 20,30 0,30 Z" fill="%23FF8FAB"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 100px 30px;
+            z-index: 1;
+        }
+
+        .contact-card {
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .social-btn {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-btn.whatsapp {
+            background-color: #25D366;
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        footer {
+            background-color: var(--marrom-chocolate);
+            color: var(--branco);
+            position: relative;
+            padding: 60px 0 30px;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23FF6B8B"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23FF6B8B"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23FF6B8B"></path></svg>');
+            background-size: cover;
             background-repeat: no-repeat;
-            background-size: 100% 100%;
+        }
+
+        .cat-element {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--preto);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .cat-element::before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background-color: var(--detalhe-gato);
+            border-radius: 50% 50% 0 0;
+            top: 15px;
+        }
+
+        .cat-element::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--detalhe-gato);
+            border-radius: 50%;
+            top: 25px;
+            left: 25px;
+            box-shadow: 20px 0 var(--detalhe-gato);
         }
 
         /* Mobile */
         @media (max-width: 768px) {
             .hero {
                 padding: 100px 0;
-                border-radius: 0 0 20px 20px;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .product-img {
-                height: 180px;
+                height: 200px;
             }
 
             .floating-btn {
@@ -338,10 +319,17 @@
                 display: block;
             }
 
-            .section-title:after {
+            .section-title::after {
                 left: 50%;
                 transform: translateX(-50%);
                 width: 30%;
+            }
+
+            .cat-element {
+                width: 60px;
+                height: 60px;
+                right: 10px;
+                bottom: 10px;
             }
         }
     </style>
@@ -350,12 +338,12 @@
 </head>
 
 <body>
-    <!-- Navbar Elegante -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="color: var(--texto); display: flex; align-items: center;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro" style="width: 30px; height: 30px; margin-right: 8px;">
-                <span style="font-family: 'Dancing Script', cursive; font-size: 1.5rem;">Brigadeiros do João</span>
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--marrom-chocolate); display: flex; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro" style="width: 40px; height: 40px; margin-right: 10px;">
+                <span style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--marrom-chocolate);">Brigadeiros do João</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -363,43 +351,44 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#produtos">Cardápio</a>
+                        <a class="nav-link fw-medium" href="#produtos" style="color: var(--marrom-chocolate);">Cardápio</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#sobre">Sobre</a>
+                        <a class="nav-link fw-medium" href="#sobre" style="color: var(--marrom-chocolate);">Sobre</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#contato">Contato</a>
+                        <a class="nav-link fw-medium" href="#contato" style="color: var(--marrom-chocolate);">Contato</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Charmoso -->
+    <!-- Hero Section -->
     <section class="hero text-center" id="inicio">
         <div class="container position-relative">
-            <h1 class="fw-bold mb-4" style="color: var(--texto); font-family: 'Dancing Script', cursive; font-size: 3.5rem;">Brigadeiros Artesanais</h1>
-            <p class="lead mb-5" style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Feitos com ingredientes selecionados e técnica profissional!</p>
-            <div class="drip-effect">
-                <a href="#produtos" class="btn btn-destaque me-2">
+            <h1 class="fw-bold mb-4" style="color: var(--branco); font-family: 'Dancing Script', cursive; font-size: 4rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Brigadeiros Artesanais</h1>
+            <p class="lead mb-5" style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; color: var(--branco);">Feitos com ingredientes selecionados e muito carinho!</p>
+            <div>
+                <a href="#produtos" class="btn btn-destaque me-3">
                     <i class="fas fa-utensils me-2"></i> Ver Cardápio
                 </a>
-            </div>
-            <div class="mt-3">
-                <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="btn btn-success" style="border-radius: 50px; padding: 10px 25px;">
+                <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="btn btn-destaque" style="background-color: var(--marrom-chocolate); box-shadow: 0 4px 15px rgba(94, 48, 35, 0.4);">
                     <i class="fab fa-whatsapp me-2"></i> Encomendar
                 </a>
             </div>
+            
+            <!-- Elemento do gato -->
+            <div class="cat-element"></div>
         </div>
     </section>
 
     <!-- Produtos -->
-    <section class="py-5 my-5" id="produtos">
+    <section class="py-5 my-5" id="produtos" style="background-color: var(--branco); position: relative;">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title drip-title" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Nossos Sabores</h2>
-                <p class="mt-3">Delicie-se com nossos brigadeiros feitos com amor</p>
+                <h2 class="section-title" style="color: var(--marrom-chocolate); font-size: 3rem;">Nossos Sabores</h2>
+                <p class="mt-3" style="color: var(--marrom-chocolate);">Delicie-se com nossos brigadeiros feitos com amor</p>
             </div>
 
             <div class="row g-4">
@@ -408,8 +397,8 @@
                     <div class="card product-card h-100">
                         <img src="https://img.cybercook.com.br/receitas/776/brigadeiro-tradicional-840x480.jpeg?q=75" class="card-img-top product-img" alt="Brigadeiro Tradicional">
                         <div class="card-body">
-                            <h4 class="card-title fw-bold" style="color: var(--texto); font-family: 'Dancing Script', cursive;">Tradicional</h4>
-                            <p class="card-text">O clássico brasileiro, cremoso e com granulado de chocolate.</p>
+                            <h4 class="card-title fw-bold" style="color: var(--marrom-chocolate); font-family: 'Dancing Script', cursive; font-size: 1.8rem;">Tradicional</h4>
+                            <p class="card-text" style="color: var(--texto);">O clássico brasileiro, cremoso e com granulado de chocolate.</p>
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <span class="price">R$ 2,50 / un</span>
                                 <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Tradicionais%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
@@ -425,8 +414,8 @@
                     <div class="card product-card h-100">
                         <img src="https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop/public/srh_recipes/4a9a5e2c9f5d0a4c3f1f2f0e3d9b3e9.jpg.webp?itok=Y3Y8nz6C" class="card-img-top product-img" alt="Brigadeiro de Ninho">
                         <div class="card-body">
-                            <h4 class="card-title fw-bold" style="color: var(--texto); font-family: 'Dancing Script', cursive;">Ninho</h4>
-                            <p class="card-text">Cremoso e suave, feito com leite ninho e cobertura de leite em pó.</p>
+                            <h4 class="card-title fw-bold" style="color: var(--marrom-chocolate); font-family: 'Dancing Script', cursive; font-size: 1.8rem;">Ninho</h4>
+                            <p class="card-text" style="color: var(--texto);">Cremoso e suave, feito com leite ninho e cobertura de leite em pó.</p>
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <span class="price">R$ 3,00 / un</span>
                                 <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20de%20Ninho%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
@@ -442,8 +431,8 @@
                     <div class="card product-card h-100">
                         <img src="https://www.receiteria.com.br/wp-content/uploads/brigadeiro-gourmet-de-ninho-com-nutella-01.jpg" class="card-img-top product-img" alt="Brigadeiro Gourmet">
                         <div class="card-body">
-                            <h4 class="card-title fw-bold" style="color: var(--texto); font-family: 'Dancing Script', cursive;">Gourmet</h4>
-                            <p class="card-text">Chocolate 70% cacau com recheio especial de sua preferência.</p>
+                            <h4 class="card-title fw-bold" style="color: var(--marrom-chocolate); font-family: 'Dancing Script', cursive; font-size: 1.8rem;">Gourmet</h4>
+                            <p class="card-text" style="color: var(--texto);">Chocolate 70% cacau com recheio especial de sua preferência.</p>
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <span class="price">R$ 4,00 / un</span>
                                 <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Gourmets%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
@@ -458,7 +447,7 @@
     </section>
 
     <!-- Sobre -->
-    <section class="py-5 my-5 bg-white position-relative" id="sobre" style="background-color: var(--bege-claro);">
+    <section class="py-5 my-5 position-relative" id="sobre" style="background-color: var(--rosa-vibrante);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -467,28 +456,28 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="section-title mb-4" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Sobre Nós</h2>
-                    <p>Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
-                    <p class="mb-4">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
+                    <h2 class="section-title mb-4" style="font-size: 3rem;">Sobre Nós</h2>
+                    <p style="color: var(--branco);">Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
+                    <p class="mb-4" style="color: var(--branco);">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
                     
                     <div class="mt-4">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--rosa-pastel); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-heart" style="color: var(--texto);"></i>
+                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--rosa-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-heart" style="color: var(--branco);"></i>
                             </div>
                             <div>
-                                <h5 style="color: var(--texto);">Feito com Amor</h5>
-                                <p class="mb-0">Cada doce é preparado com carinho e dedicação</p>
+                                <h5 style="color: var(--branco);">Feito com Amor</h5>
+                                <p class="mb-0" style="color: var(--branco);">Cada doce é preparado com carinho e dedicação</p>
                             </div>
                         </div>
                         
                         <div class="d-flex align-items-center">
-                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--verde-pastel); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-award" style="color: var(--texto);"></i>
+                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--marrom-chocolate); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-award" style="color: var(--branco);"></i>
                             </div>
                             <div>
-                                <h5 style="color: var(--texto);">Qualidade Garantida</h5>
-                                <p class="mb-0">Ingredientes selecionados e técnicas profissionais</p>
+                                <h5 style="color: var(--branco);">Qualidade Garantida</h5>
+                                <p class="mb-0" style="color: var(--branco);">Ingredientes selecionados e técnicas profissionais</p>
                             </div>
                         </div>
                     </div>
@@ -498,11 +487,11 @@
     </section>
 
     <!-- Contato -->
-    <section class="py-5 my-5" id="contato">
+    <section class="py-5 my-5" id="contato" style="background-color: var(--branco);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title drip-title" style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Faça sua Encomenda</h2>
-                <p class="mt-3">Entre em contato pelo WhatsApp ou Instagram</p>
+                <h2 class="section-title" style="color: var(--marrom-chocolate); font-size: 3rem;">Faça sua Encomenda</h2>
+                <p class="mt-3" style="color: var(--marrom-chocolate);">Entre em contato pelo WhatsApp ou Instagram</p>
             </div>
 
             <div class="row justify-content-center">
@@ -519,9 +508,9 @@
                             </div>
 
                             <div class="text-center mt-4">
-                                <h5 class="mb-3" style="font-family: 'Dancing Script', cursive;">Informações</h5>
-                                <p><i class="fas fa-map-marker-alt me-2" style="color: var(--azul-pastel);"></i> Timbó - SC</p>
-                                <p><i class="fas fa-clock me-2" style="color: var(--verde-pastel);"></i> Atendimento: Sáb 9h30-15h | Dom 9h30-13h30</p>
+                                <h5 class="mb-3" style="font-family: 'Dancing Script', cursive; color: var(--marrom-chocolate); font-size: 1.8rem;">Informações</h5>
+                                <p style="color: var(--texto);"><i class="fas fa-map-marker-alt me-2" style="color: var(--rosa-pink);"></i> Timbó - SC</p>
+                                <p style="color: var(--texto);"><i class="fas fa-clock me-2" style="color: var(--rosa-pink);"></i> Atendimento: Sáb 9h30-15h | Dom 9h30-13h30</p>
                             </div>
                         </div>
                     </div>
@@ -531,7 +520,7 @@
     </section>
 
     <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="floating-btn" style="background: #25D366; color: white;">
+    <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="floating-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -539,8 +528,8 @@
     <footer class="py-4">
         <div class="container text-center">
             <p class="mb-2">© 2025 Brigadeiros do João. Todos os direitos reservados.</p>
-            <p class="dev-credits mb-0">
-                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank" style="color: var(--texto); text-decoration: underline;">[Carlos Jhonne]</a>
+            <p class="mb-0">
+                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank" style="color: var(--branco); text-decoration: underline;">Carlos Jhonne</a>
             </p>
         </div>
     </footer>
@@ -565,19 +554,14 @@
             btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
 
-        // Efeito de gotejamento aleatório
-        function createDrip() {
+        // Criar gostas de chocolate caindo
+        function createChocolateDrip() {
             const drip = document.createElement('div');
-            drip.style.position = 'fixed';
-            drip.style.width = '20px';
-            drip.style.height = Math.random() * 30 + 20 + 'px';
-            drip.style.background = 'linear-gradient(transparent, ' + getRandomPastelColor() + ')';
+            drip.className = 'chocolate-drip';
             drip.style.left = Math.random() * window.innerWidth + 'px';
-            drip.style.top = '-50px';
-            drip.style.borderRadius = '0 0 10px 10px';
-            drip.style.zIndex = '0';
-            drip.style.opacity = '0.7';
-            drip.style.animation = 'fall ' + (Math.random() * 3 + 2) + 's linear forwards';
+            drip.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            drip.style.width = (Math.random() * 15 + 10) + 'px';
+            drip.style.height = (Math.random() * 30 + 20) + 'px';
             
             document.body.appendChild(drip);
             
@@ -586,24 +570,8 @@
             }, 5000);
         }
 
-        function getRandomPastelColor() {
-            const colors = ['#A7C7E7', '#C1E1C1', '#FFD1DC', '#D8BFD8', '#D2B48C'];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-
         // Criar gotejamentos periodicamente
-        setInterval(createDrip, 1000);
-
-        // Adicionar animação CSS
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fall {
-                to {
-                    transform: translateY(${window.innerHeight + 100}px);
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        setInterval(createChocolateDrip, 800);
     </script>
 </body>
 

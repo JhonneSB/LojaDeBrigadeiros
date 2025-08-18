@@ -17,6 +17,10 @@
             --detalhe-gato: #F8F8F8;
             --texto: #2D2D2D;
             --sombra: rgba(0, 0, 0, 0.1);
+            --pink:#e66b73;          /* cor de fundo */
+  --cat:#000000;           /* cor do gato */
+  --white:#ffffff;         /* branco dos olhos */
+
         }
 
         body {
@@ -722,9 +726,114 @@
                 max-height: 300px;
             }
             
-            .cat-element {
-                display: none; /* Esconde o gato em telas muito pequenas */
-            }
+            /* ====== GATO ====== */
+.cat-element{
+  position:fixed;
+  right:-90px;           /* aparece espiando da direita */
+  bottom:0;
+  width:min(260px,38vw);
+  aspect-ratio:1/1;
+  pointer-events:none;
+}
+
+/* cabeça */
+.cat-head{
+  position:absolute;
+  inset:auto 0 0 auto;
+  width:88%;
+  aspect-ratio:1/1;
+  background:var(--cat);
+  border-radius:50%;
+  translate: 6% 6%;
+}
+
+/* orelhas */
+.cat-ear-left, .cat-ear-right{
+  position:absolute;
+  top:2%;
+  width:0; height:0;
+  border-left: 65px solid transparent;
+  border-right:65px solid transparent;
+  border-bottom:95px solid var(--cat);
+}
+.cat-ear-left{ right:58%; rotate:-17deg; }
+.cat-ear-right{ right:6%;  rotate: 17deg; }
+
+/* “forro” das orelhas */
+.cat-ear-left .cat-ear-inner,
+.cat-ear-right .cat-ear-inner{
+  position:absolute; inset:auto;
+  top:18px; left:-45px;
+  width:0; height:0;
+  border-left:45px solid transparent;
+  border-right:45px solid transparent;
+  border-bottom:66px solid rgba(255,255,255,.02);
+}
+
+/* olhos */
+.cat-eye-left, .cat-eye-right{
+  position:absolute;
+  top:32%;
+  width:38%;
+  aspect-ratio:1/1;
+  background:var(--white);
+  border-radius:50%;
+  overflow:hidden;
+}
+.cat-eye-left{ left:16%; }
+.cat-eye-right{ right:10%; }
+
+/* pupilas */
+.cat-pupil-left, .cat-pupil-right{
+  position:absolute;
+  width:48%;
+  aspect-ratio:1/1;
+  background:var(--cat);
+  border-radius:50%;
+  top:22%;
+  left:10%;
+}
+.cat-eye-right .cat-pupil-right{ left:14%; }
+
+/* nariz e boca */
+.cat-nose{
+  position:absolute;
+  top:61%;
+  left:47%;
+  width:9%;
+  aspect-ratio:1/1;
+  background:var(--white);
+  border-radius:40% 40% 60% 60%;
+  translate:-50% 0;
+}
+.cat-mouth{
+  position:absolute;
+  top:68%;
+  left:47%;
+  width:20%;
+  height:12px;
+  border-bottom:4px solid var(--white);
+  border-radius:0 0 40px 40px;
+  translate:-50% 0;
+}
+
+/* bigodes */
+.cat-whiskers .cat-whisker{
+  position:absolute;
+  height:2px;
+  background:var(--white);
+  opacity:.95;
+}
+.cat-whiskers .left-1{ width:32%; left:7%;  top:58%; rotate:-8deg; }
+.cat-whiskers .left-2{ width:34%; left:6%;  top:64%; }
+.cat-whiskers .left-3{ width:32%; left:7%;  top:70%; rotate:8deg;  }
+.cat-whiskers .right-1{ width:32%; right:6%; top:58%; rotate:8deg;  }
+.cat-whiskers .right-2{ width:34%; right:5%; top:64%; }
+.cat-whiskers .right-3{ width:32%; right:6%; top:70%; rotate:-8deg; }
+
+@media (max-width:520px){
+  .cat-element{ right:-70px; }
+}
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -773,36 +882,36 @@
             </div>
             
             <!-- Elemento do gato melhorado - estilo cartoon -->
-            <div class="cat-element">
-                <div class="cat-ear-left">
-                    <div class="cat-ear-inner"></div>
-                </div>
-                <div class="cat-ear-right">
-                    <div class="cat-ear-inner"></div>
-                </div>
-                <div class="cat-head">
-                    <div class="cat-eye-left">
-                        <div class="cat-pupil-left"></div>
-                    </div>
-                    <div class="cat-eye-right">
-                        <div class="cat-pupil-right"></div>
-                    </div>
-                    <div class="cat-nose"></div>
-                    <div class="cat-mouth"></div>
-                    <div class="cat-whiskers">
-                        <div class="cat-whisker left-1"></div>
-                        <div class="cat-whisker left-2"></div>
-                        <div class="cat-whisker left-3"></div>
-                        <div class="cat-whisker right-1"></div>
-                        <div class="cat-whisker right-2"></div>
-                        <div class="cat-whisker right-3"></div>
-                    </div>
-                </div>
-                <div class="cat-heart">
-                    <i class="fas fa-heart"></i>
-                </div>
-            </div>
-        </div>
+            <!-- GATO -->
+<div class="cat-element">
+  <div class="cat-ear-left">
+    <div class="cat-ear-inner"></div>
+  </div>
+  <div class="cat-ear-right">
+    <div class="cat-ear-inner"></div>
+  </div>
+
+  <div class="cat-head">
+    <div class="cat-eye-left">
+      <div class="cat-pupil-left"></div>
+    </div>
+    <div class="cat-eye-right">
+      <div class="cat-pupil-right"></div>
+    </div>
+    <div class="cat-nose"></div>
+    <div class="cat-mouth"></div>
+
+    <div class="cat-whiskers">
+      <div class="cat-whisker left-1"></div>
+      <div class="cat-whisker left-2"></div>
+      <div class="cat-whisker left-3"></div>
+      <div class="cat-whisker right-1"></div>
+      <div class="cat-whisker right-2"></div>
+      <div class="cat-whisker right-3"></div>
+    </div>
+  </div>
+</div>
+
     </section>
 
     <!-- Produtos -->

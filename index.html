@@ -21,7 +21,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--rosa-vibrante);
+            background-color: var(--branco);
             color: var(--texto);
             line-height: 1.6;
             overflow-x: hidden;
@@ -30,7 +30,7 @@
 
         /* Efeito de gostas de chocolate caindo */
         .chocolate-drip {
-            position: absolute;
+            position: fixed;
             width: 20px;
             height: 30px;
             background: linear-gradient(transparent, var(--marrom-chocolate));
@@ -38,6 +38,7 @@
             z-index: 0;
             opacity: 0.7;
             animation: fall linear forwards;
+            pointer-events: none;
         }
 
         @keyframes fall {
@@ -50,6 +51,31 @@
             background-color: var(--branco) !important;
             box-shadow: 0 2px 15px var(--sombra);
             border-bottom: 3px solid var(--rosa-pink);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--marrom-chocolate) !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: var(--marrom-chocolate) !important;
+            font-weight: 500;
+            padding: 8px 15px !important;
+        }
+
+        .nav-link:hover {
+            color: var(--rosa-vibrante) !important;
         }
 
         .btn-destaque {
@@ -80,6 +106,7 @@
             padding: 150px 0;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .hero::before {
@@ -94,6 +121,22 @@
             background-repeat: no-repeat;
         }
 
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--branco);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            color: var(--branco);
+        }
+
         .product-card {
             border: none;
             border-radius: 20px;
@@ -103,6 +146,9 @@
             background: var(--branco);
             position: relative;
             z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -115,6 +161,7 @@
             object-fit: cover;
             background-color: var(--branco);
             position: relative;
+            width: 100%;
         }
 
         .product-img::before {
@@ -128,6 +175,27 @@
             background-repeat: repeat-x;
             background-size: 100px 20px;
             z-index: 2;
+        }
+
+        .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .card-title {
+            color: var(--marrom-chocolate);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: var(--texto);
+            flex-grow: 1;
+            margin-bottom: 15px;
         }
 
         .price {
@@ -158,29 +226,34 @@
             background: #25D366;
             color: white;
             border: none;
+            text-decoration: none;
         }
 
         .floating-btn:hover {
             transform: scale(1.1) rotate(10deg);
             box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+            color: white;
         }
 
         .section-title {
             position: relative;
             display: inline-block;
-            color: var(--branco);
+            color: var(--marrom-chocolate);
             font-family: 'Dancing Script', cursive;
             font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
         .section-title::after {
             content: "";
             position: absolute;
             bottom: -10px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 50%;
             height: 4px;
-            background-color: var(--branco);
+            background-color: currentColor;
             border-radius: 2px;
         }
 
@@ -190,6 +263,8 @@
             border: 8px solid var(--branco);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            height: auto;
         }
 
         .about-img::before {
@@ -212,6 +287,7 @@
             position: relative;
             overflow: hidden;
             border: none;
+            padding: 30px;
         }
 
         .social-btn {
@@ -222,11 +298,16 @@
             color: white;
             border: none;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px 15px;
+            text-align: center;
         }
 
         .social-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            color: white;
         }
 
         .social-btn.whatsapp {
@@ -241,7 +322,8 @@
             background-color: var(--marrom-chocolate);
             color: var(--branco);
             position: relative;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
+            text-align: center;
         }
 
         footer::before {
@@ -254,6 +336,15 @@
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23FF6B8B"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23FF6B8B"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23FF6B8B"></path></svg>');
             background-size: cover;
             background-repeat: no-repeat;
+        }
+
+        footer a {
+            color: var(--branco);
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: var(--rosa-pink);
         }
 
         .cat-element {
@@ -292,20 +383,72 @@
             box-shadow: 20px 0 var(--detalhe-gato);
         }
 
+        .feature-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--rosa-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            color: var(--branco);
+            font-size: 1.2rem;
+        }
+
+        .feature-text h5 {
+            color: var(--branco);
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            color: var(--branco);
+            margin-bottom: 0;
+        }
+
         /* Mobile */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 120px 0;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
                 padding: 100px 0;
             }
-
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
-
+            
             .product-img {
                 height: 200px;
             }
-
+            
             .floating-btn {
                 width: 60px;
                 height: 60px;
@@ -313,23 +456,70 @@
                 bottom: 20px;
                 right: 20px;
             }
-
+            
             .section-title {
-                text-align: center;
-                display: block;
+                font-size: 2.2rem;
             }
-
-            .section-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 30%;
-            }
-
+            
             .cat-element {
                 width: 60px;
                 height: 60px;
                 right: 10px;
                 bottom: 10px;
+            }
+            
+            .cat-element::before {
+                width: 25px;
+                height: 15px;
+                top: 12px;
+            }
+            
+            .cat-element::after {
+                width: 8px;
+                height: 8px;
+                top: 20px;
+                left: 20px;
+                box-shadow: 15px 0 var(--detalhe-gato);
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-brand img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-destaque {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .social-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                margin: 0 5px 10px;
+            }
+            
+            .price {
+                font-size: 1rem;
+                padding: 6px 15px;
             }
         }
     </style>
@@ -341,23 +531,23 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="color: var(--marrom-chocolate); display: flex; align-items: center;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro" style="width: 40px; height: 40px; margin-right: 10px;">
-                <span style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--marrom-chocolate);">Brigadeiros do João</span>
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081987.png" alt="Brigadeiro">
+                Brigadeiros do João
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-medium" href="#produtos" style="color: var(--marrom-chocolate);">Cardápio</a>
+                        <a class="nav-link" href="#produtos">Cardápio</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-medium" href="#sobre" style="color: var(--marrom-chocolate);">Sobre</a>
+                        <a class="nav-link" href="#sobre">Sobre</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-medium" href="#contato" style="color: var(--marrom-chocolate);">Contato</a>
+                        <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -365,15 +555,15 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero text-center" id="inicio">
+    <section class="hero" id="inicio">
         <div class="container position-relative">
-            <h1 class="fw-bold mb-4" style="color: var(--branco); font-family: 'Dancing Script', cursive; font-size: 4rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Brigadeiros Artesanais</h1>
-            <p class="lead mb-5" style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; color: var(--branco);">Feitos com ingredientes selecionados e muito carinho!</p>
-            <div>
-                <a href="#produtos" class="btn btn-destaque me-3">
+            <h1>Brigadeiros Artesanais</h1>
+            <p>Feitos com ingredientes selecionados e muito carinho!</p>
+            <div class="d-flex flex-wrap justify-content-center">
+                <a href="#produtos" class="btn btn-destaque me-3 mb-2">
                     <i class="fas fa-utensils me-2"></i> Ver Cardápio
                 </a>
-                <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="btn btn-destaque" style="background-color: var(--marrom-chocolate); box-shadow: 0 4px 15px rgba(94, 48, 35, 0.4);">
+                <a href="https://wa.me/5547991983720?text=Olá,%20gostaria%20de%20fazer%20uma%20encomenda%20de%20brigadeiros!" class="btn btn-destaque mb-2" style="background-color: var(--marrom-chocolate); box-shadow: 0 4px 15px rgba(94, 48, 35, 0.4);">
                     <i class="fab fa-whatsapp me-2"></i> Encomendar
                 </a>
             </div>
@@ -384,22 +574,22 @@
     </section>
 
     <!-- Produtos -->
-    <section class="py-5 my-5" id="produtos" style="background-color: var(--branco); position: relative;">
+    <section class="py-5 my-5" id="produtos" style="background-color: var(--branco);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title" style="color: var(--marrom-chocolate); font-size: 3rem;">Nossos Sabores</h2>
+                <h2 class="section-title">Nossos Sabores</h2>
                 <p class="mt-3" style="color: var(--marrom-chocolate);">Delicie-se com nossos brigadeiros feitos com amor</p>
             </div>
 
             <div class="row g-4">
                 <!-- Produto 1 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card product-card h-100">
+                    <div class="card product-card">
                         <img src="https://img.cybercook.com.br/receitas/776/brigadeiro-tradicional-840x480.jpeg?q=75" class="card-img-top product-img" alt="Brigadeiro Tradicional">
                         <div class="card-body">
-                            <h4 class="card-title fw-bold" style="color: var(--marrom-chocolate); font-family: 'Dancing Script', cursive; font-size: 1.8rem;">Tradicional</h4>
-                            <p class="card-text" style="color: var(--texto);">O clássico brasileiro, cremoso e com granulado de chocolate.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
+                            <h4 class="card-title">Tradicional</h4>
+                            <p class="card-text">O clássico brasileiro, cremoso e com granulado de chocolate.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price">R$ 2,50 / un</span>
                                 <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Tradicionais%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
                                     Pedir Agora
@@ -411,12 +601,12 @@
 
                 <!-- Produto 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card product-card h-100">
+                    <div class="card product-card">
                         <img src="https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop/public/srh_recipes/4a9a5e2c9f5d0a4c3f1f2f0e3d9b3e9.jpg.webp?itok=Y3Y8nz6C" class="card-img-top product-img" alt="Brigadeiro de Ninho">
                         <div class="card-body">
-                            <h4 class="card-title fw-bold" style="color: var(--marrom-chocolate); font-family: 'Dancing Script', cursive; font-size: 1.8rem;">Ninho</h4>
-                            <p class="card-text" style="color: var(--texto);">Cremoso e suave, feito com leite ninho e cobertura de leite em pó.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
+                            <h4 class="card-title">Ninho</h4>
+                            <p class="card-text">Cremoso e suave, feito com leite ninho e cobertura de leite em pó.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price">R$ 3,00 / un</span>
                                 <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20de%20Ninho%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
                                     Pedir Agora
@@ -428,12 +618,12 @@
 
                 <!-- Produto 3 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card product-card h-100">
+                    <div class="card product-card">
                         <img src="https://www.receiteria.com.br/wp-content/uploads/brigadeiro-gourmet-de-ninho-com-nutella-01.jpg" class="card-img-top product-img" alt="Brigadeiro Gourmet">
                         <div class="card-body">
-                            <h4 class="card-title fw-bold" style="color: var(--marrom-chocolate); font-family: 'Dancing Script', cursive; font-size: 1.8rem;">Gourmet</h4>
-                            <p class="card-text" style="color: var(--texto);">Chocolate 70% cacau com recheio especial de sua preferência.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
+                            <h4 class="card-title">Gourmet</h4>
+                            <p class="card-text">Chocolate 70% cacau com recheio especial de sua preferência.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price">R$ 4,00 / un</span>
                                 <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20encomendar%20Brigadeiros%20Gourmets%0A%0A•%20Quantidade:%20%0A•%20Data%20de%20entrega:%20%0A•%20Endereço:%20%0A%0AObrigado!" class="btn btn-sm btn-destaque">
                                     Pedir Agora
@@ -456,28 +646,28 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="section-title mb-4" style="font-size: 3rem;">Sobre Nós</h2>
-                    <p style="color: var(--branco);">Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
-                    <p class="mb-4" style="color: var(--branco);">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
+                    <h2 class="section-title" style="color: var(--branco);">Sobre Nós</h2>
+                    <p>Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
+                    <p class="mb-4">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
                     
                     <div class="mt-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--rosa-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-heart" style="color: var(--branco);"></i>
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
                             </div>
-                            <div>
-                                <h5 style="color: var(--branco);">Feito com Amor</h5>
-                                <p class="mb-0" style="color: var(--branco);">Cada doce é preparado com carinho e dedicação</p>
+                            <div class="feature-text">
+                                <h5>Feito com Amor</h5>
+                                <p>Cada doce é preparado com carinho e dedicação</p>
                             </div>
                         </div>
                         
-                        <div class="d-flex align-items-center">
-                            <div class="me-3" style="width: 50px; height: 50px; background-color: var(--marrom-chocolate); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-award" style="color: var(--branco);"></i>
+                        <div class="feature-box">
+                            <div class="feature-icon" style="background-color: var(--marrom-chocolate);">
+                                <i class="fas fa-award"></i>
                             </div>
-                            <div>
-                                <h5 style="color: var(--branco);">Qualidade Garantida</h5>
-                                <p class="mb-0" style="color: var(--branco);">Ingredientes selecionados e técnicas profissionais</p>
+                            <div class="feature-text">
+                                <h5>Qualidade Garantida</h5>
+                                <p>Ingredientes selecionados e técnicas profissionais</p>
                             </div>
                         </div>
                     </div>
@@ -490,28 +680,26 @@
     <section class="py-5 my-5" id="contato" style="background-color: var(--branco);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title" style="color: var(--marrom-chocolate); font-size: 3rem;">Faça sua Encomenda</h2>
+                <h2 class="section-title">Faça sua Encomenda</h2>
                 <p class="mt-3" style="color: var(--marrom-chocolate);">Entre em contato pelo WhatsApp ou Instagram</p>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
-                    <div class="card contact-card">
-                        <div class="card-body p-4 p-md-5">
-                            <div class="text-center mb-4">
-                                <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20saber%20mais%20sobre%20seus%20brigadeiros!" class="social-btn whatsapp me-3 mb-3">
-                                    <i class="fab fa-whatsapp me-2"></i> WhatsApp
-                                </a>
-                                <a href="https://www.instagram.com/jcdepaula14/#" class="social-btn instagram mb-3">
-                                    <i class="fab fa-instagram me-2"></i> Instagram
-                                </a>
-                            </div>
+                    <div class="contact-card text-center">
+                        <div class="mb-4">
+                            <a href="https://wa.me/5547991983720?text=Olá%20João,%20gostaria%20de%20saber%20mais%20sobre%20seus%20brigadeiros!" class="social-btn whatsapp">
+                                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                            </a>
+                            <a href="https://www.instagram.com/jcdepaula14/#" class="social-btn instagram">
+                                <i class="fab fa-instagram me-2"></i> Instagram
+                            </a>
+                        </div>
 
-                            <div class="text-center mt-4">
-                                <h5 class="mb-3" style="font-family: 'Dancing Script', cursive; color: var(--marrom-chocolate); font-size: 1.8rem;">Informações</h5>
-                                <p style="color: var(--texto);"><i class="fas fa-map-marker-alt me-2" style="color: var(--rosa-pink);"></i> Timbó - SC</p>
-                                <p style="color: var(--texto);"><i class="fas fa-clock me-2" style="color: var(--rosa-pink);"></i> Atendimento: Sáb 9h30-15h | Dom 9h30-13h30</p>
-                            </div>
+                        <div class="mt-4">
+                            <h5 style="font-family: 'Dancing Script', cursive; color: var(--marrom-chocolate); font-size: 1.8rem;">Informações</h5>
+                            <p><i class="fas fa-map-marker-alt me-2" style="color: var(--rosa-pink);"></i> Timbó - SC</p>
+                            <p><i class="fas fa-clock me-2" style="color: var(--rosa-pink);"></i> Atendimento: Sáb 9h30-15h | Dom 9h30-13h30</p>
                         </div>
                     </div>
                 </div>
@@ -525,11 +713,11 @@
     </a>
 
     <!-- Footer -->
-    <footer class="py-4">
-        <div class="container text-center">
+    <footer>
+        <div class="container">
             <p class="mb-2">© 2025 Brigadeiros do João. Todos os direitos reservados.</p>
             <p class="mb-0">
-                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank" style="color: var(--branco); text-decoration: underline;">Carlos Jhonne</a>
+                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank">Carlos Jhonne</a>
             </p>
         </div>
     </footer>
@@ -542,16 +730,21 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
         // Botão flutuante aparece após rolar
         window.addEventListener('scroll', function () {
             const btn = document.querySelector('.floating-btn');
-            btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            if (btn) {
+                btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            }
         });
 
         // Criar gostas de chocolate caindo
@@ -572,6 +765,19 @@
 
         // Criar gotejamentos periodicamente
         setInterval(createChocolateDrip, 800);
+        
+        // Criar alguns gotejamentos iniciais
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createChocolateDrip, i * 200);
+        }
+        
+        // Esconder o botão flutuante inicialmente
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.querySelector('.floating-btn');
+            if (btn) {
+                btn.style.display = 'none';
+            }
+        });
     </script>
 </body>
 

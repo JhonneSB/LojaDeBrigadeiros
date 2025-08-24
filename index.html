@@ -29,12 +29,12 @@
             position: relative;
         }
 
-        /* Efeito de gostas de chocolate caindo - AGORA EM TODO O SITE */
+        /* Efeito de gotas de chocolate caindo - CORRIGIDO */
         .chocolate-drip {
             position: fixed;
             width: 20px;
             height: 30px;
-            background: linear-gradient(transparent, var(--marrom-chocolate));
+            background: linear-gradient(to bottom, transparent 0%, var(--marrom-chocolate) 100%);
             border-radius: 0 0 10px 10px;
             z-index: 0;
             opacity: 0.6;
@@ -228,27 +228,49 @@
             border: none;
         }
 
+        /* BOTÕES SOCIAIS MELHORADOS */
         .social-btn {
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 15px 35px;
             font-weight: 600;
             transition: all 0.3s;
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            color: white;
         }
 
         .social-btn.whatsapp {
-            background-color: #25D366;
+            background: linear-gradient(145deg, #25D366, #128C7E);
         }
 
         .social-btn.instagram {
             background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            background-size: 200% 200%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .social-btn i {
+            margin-right: 10px;
+            font-size: 1.3rem;
         }
 
         footer {
@@ -299,6 +321,28 @@
             background: var(--rosa-pink);
             color: white;
             font-size: 28px;
+        }
+
+        /* ESTILOS PARA O GATINHO FOFINHO - AGORA NO CANTO SUPERIOR DIREITO */
+        .cat-image {
+            position: fixed;
+            top: 80px;
+            right: 0px;
+            z-index: 999;
+            width: 80px;
+            height: auto;
+            transition: all 0.5s ease;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cat-image:hover {
+            transform: scale(1.1) rotate(5deg);
         }
 
         /* Mobile - RESPONSIVIDADE MELHORADA */
@@ -360,6 +404,8 @@
                 width: 100%;
                 margin-bottom: 15px;
                 text-align: center;
+                padding: 12px 25px;
+                font-size: 1rem;
             }
             
             footer {
@@ -370,6 +416,13 @@
             footer::before {
                 height: 80px;
                 top: -40px;
+            }
+
+            /* Ajustes para o gatinho em mobile */
+            .cat-image {
+                width: 60px;
+                right: 90px;
+                top: 15px;
             }
         }
         
@@ -389,6 +442,13 @@
             
             .about-img {
                 max-height: 250px; /* Altura ainda menor em telas pequenas */
+            }
+
+            /* Ajustes para o gatinho em telas muito pequenas */
+            .cat-image {
+                width: 60px;
+                right: 0px;
+                top: 80px;
             }
         }
     </style>
@@ -425,6 +485,9 @@
             </div>
         </div>
     </nav>
+
+    <!-- Gatinho Fofinho - AGORA NO CANTO SUPERIOR DIREITO -->
+    <img src="gatinho.png" class="cat-image" alt="Gatinho fofo" id="catImage">
 
     <!-- Hero Section -->
     <section class="hero text-center" id="inicio">
@@ -557,7 +620,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title white mb-4" style="font-size: 3rem;">Sobre Nós</h2>
-                    <p style="color: var(--branco);">Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
+                    <p style="color: var(--branco);">Comecei a fazer brigadeiros como hobby и descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
                     <p class="mb-4" style="color: var(--branco);">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
                     
                     <div class="mt-4">
@@ -653,9 +716,13 @@
         window.addEventListener('scroll', function () {
             const btn = document.querySelector('.floating-btn');
             btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            
+            // Gatinho também aparece junto com o botão
+            const cat = document.getElementById('catImage');
+            cat.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
 
-        // Criar gostas de chocolate caindo - MELHORADO
+        // Criar gotas de chocolate caindo - CORRIGIDO
         function createChocolateDrip() {
             const drip = document.createElement('div');
             drip.className = 'chocolate-drip';
@@ -687,6 +754,18 @@
         for (let i = 0; i < 15; i++) {
             setTimeout(createChocolateDrip, i * 300);
         }
+        
+        // Interação com o gatinho
+        document.getElementById('catImage').addEventListener('click', function() {
+            this.style.transform = 'scale(1.2) rotate(10deg)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 500);
+            
+            // Opcional: fazer um miado
+            // const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-cat-meow-119.mp3');
+            // audio.play();
+        });
     </script>
 </body>
 

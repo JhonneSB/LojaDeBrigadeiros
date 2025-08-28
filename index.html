@@ -40,6 +40,7 @@
             opacity: 0.6;
             animation: fall linear forwards;
             pointer-events: none;
+            top: -50px;
         }
 
         @keyframes fall {
@@ -634,7 +635,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title" style="font-size: 3rem;">Faça sua Encomenda</h2>
-                <p class="mt-3">Entre em contato pelo WhatsApp ou Instagram</p>
+                <p class="mt-3">Entre em contato pelo WhatsApp or Instagram</p>
             </div>
 
             <div class="row justify-content-center">
@@ -702,7 +703,7 @@
             cat.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
 
-        // Criar gotas de chocolate caindo - CORREÇÃO APLICADA
+        // Criar gotas de chocolate caindo - CORRIGIDO
         function createChocolateDrip() {
             const drip = document.createElement('div');
             drip.className = 'chocolate-drip';
@@ -711,7 +712,8 @@
             drip.style.left = Math.random() * window.innerWidth + 'px';
             
             // Velocidade e tamanho variados para efeito mais natural
-            drip.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            const duration = Math.random() * 5 + 3;
+            drip.style.animation = `fall ${duration}s linear forwards`;
             drip.style.width = (Math.random() * 15 + 8) + 'px';
             drip.style.height = (Math.random() * 40 + 20) + 'px';
             drip.style.opacity = Math.random() * 0.6 + 0.2;
@@ -724,7 +726,7 @@
                 if (drip.parentNode) {
                     drip.parentNode.removeChild(drip);
                 }
-            }, 8000);
+            }, duration * 1000 + 100);
         }
 
         // Criar gotejamentos periodicamente

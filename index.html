@@ -31,58 +31,82 @@
             position: relative;
         }
 
-        /* Efeito de gotas de chocolate melhorado */
-        .chocolate-drip {
+        /* Efeito de chocolate mais sutil e elegante */
+        .chocolate-element {
             position: fixed;
-            z-index: 0;
+            z-index: -1;
             pointer-events: none;
-            top: -50px;
             opacity: 0;
-            animation: fall linear forwards;
+            animation: fadeInOut 8s ease-in-out forwards;
         }
 
-        @keyframes fall {
+        @keyframes fadeInOut {
             0% {
-                opacity: 0.8;
-                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+                transform: translateY(-20px) scale(0.8);
             }
-            10% {
-                opacity: 1;
+            20% {
+                opacity: 0.7;
             }
-            90% {
-                opacity: 0.9;
+            80% {
+                opacity: 0.7;
             }
             100% {
                 opacity: 0;
-                transform: translateY(100vh) rotate(5deg);
+                transform: translateY(0) scale(1);
             }
         }
 
-        /* Formato da gota melhorado */
-        .chocolate-drip::before {
+        /* Formas de chocolate mais variadas e sutis */
+        .chocolate-element.circle::before {
             content: "";
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                var(--marrom-chocolate-escuro) 30%, 
-                var(--marrom-chocolate) 70%, 
-                var(--marrom-chocolate-claro) 100%);
+            background: radial-gradient(circle, var(--marrom-chocolate-escuro) 0%, var(--marrom-chocolate) 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(94, 48, 35, 0.3);
+        }
+
+        .chocolate-element.heart::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--marrom-chocolate);
+            transform: rotate(-45deg);
+            box-shadow: 0 0 8px rgba(94, 48, 35, 0.3);
+        }
+
+        .chocolate-element.heart::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--marrom-chocolate);
+            transform: rotate(45deg);
+            box-shadow: 0 0 8px rgba(94, 48, 35, 0.3);
+        }
+
+        .chocolate-element.splash::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--marrom-chocolate);
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 0 5px rgba(139, 90, 60, 0.5);
-            transform-origin: center bottom;
+            box-shadow: 0 0 8px rgba(94, 48, 35, 0.3);
         }
 
         /* Efeito de brilho no chocolate */
-        .chocolate-drip::after {
+        .chocolate-element::after {
             content: "";
             position: absolute;
             top: 15%;
             left: 30%;
             width: 20%;
             height: 10%;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transform: rotate(25deg);
         }
@@ -721,53 +745,94 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Função para criar gotas de chocolate
-        function createChocolateDrops() {
-            const container = document.body;
-            const dropCount = 15;
+        // Função para criar elementos de chocolate sutis
+        function createChocolateElements() {
+            // Só cria elementos se a tela for grande o suficiente
+            if (window.innerWidth < 768) return;
             
-            for (let i = 0; i < dropCount; i++) {
-                const drop = document.createElement('div');
-                drop.className = 'chocolate-drip';
+            const container = document.body;
+            const elementCount = 5; // Reduzido significativamente
+            const types = ['circle', 'heart', 'splash'];
+            
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'chocolate-element';
                 
-                // Tamanho aleatório entre 10 e 25px
-                const size = Math.random() * 15 + 10;
-                drop.style.width = `${size}px`;
-                drop.style.height = `${size * 1.5}px`;
+                // Tipo aleatório
+                const type = types[Math.floor(Math.random() * types.length)];
+                element.classList.add(type);
                 
-                // Posição aleatória na tela
-                drop.style.left = `${Math.random() * 100}vw`;
+                // Tamanho aleatório entre 8 e 20px
+                const size = Math.random() * 12 + 8;
+                element.style.width = `${size}px`;
+                element.style.height = type === 'heart' ? `${size}px` : `${size * 1.2}px`;
                 
-                // Duração aleatória entre 5 e 15 segundos
-                const duration = Math.random() * 10 + 5;
-                drop.style.animationDuration = `${duration}s`;
+                // Posição aleatória na tela (evitando áreas importantes)
+                const top = Math.random() * 80 + 10; // 10% a 90%
+                const left = Math.random() * 80 + 10; // 10% a 90%
+                element.style.top = `${top}vh`;
+                element.style.left = `${left}vw`;
                 
-                // Atraso aleatório até 5 segundos
-                const delay = Math.random() * 5;
-                drop.style.animationDelay = `${delay}s`;
+                // Duração aleatória entre 6 e 10 segundos
+                const duration = Math.random() * 4 + 6;
+                element.style.animationDuration = `${duration}s`;
                 
-                container.appendChild(drop);
+                container.appendChild(element);
                 
                 // Remover após a animação terminar
                 setTimeout(() => {
-                    drop.remove();
-                }, (duration + delay) * 1000);
+                    element.remove();
+                }, duration * 1000);
             }
         }
         
-        // Criar gotas periodicamente
-        setInterval(createChocolateDrops, 3000);
+        // Criar elementos periodicamente com intervalo maior
+        setInterval(createChocolateElements, 8000);
         
-        // Iniciar algumas gotas imediatamente
-        setTimeout(createChocolateDrops, 1000);
+        // Iniciar alguns elementos imediatamente
+        setTimeout(createChocolateElements, 2000);
         
         // Efeito para o gatinho
         document.getElementById('catImage').addEventListener('click', function() {
             this.style.transform = 'rotate(360deg) scale(1.2)';
+            // Criar alguns elementos de coração quando o gato é clicado
+            createHearts();
             setTimeout(() => {
                 this.style.transform = '';
             }, 1000);
         });
+        
+        // Função especial para criar corações (quando o gato é clicado)
+        function createHearts() {
+            const container = document.body;
+            const cat = document.getElementById('catImage');
+            const catRect = cat.getBoundingClientRect();
+            
+            for (let i = 0; i < 3; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'chocolate-element heart';
+                
+                // Tamanho pequeno
+                heart.style.width = '15px';
+                heart.style.height = '15px';
+                
+                // Posição próxima ao gato
+                heart.style.position = 'fixed';
+                heart.style.top = `${catRect.top + Math.random() * 50}px`;
+                heart.style.left = `${catRect.left + Math.random() * 50}px`;
+                heart.style.zIndex = '1000';
+                
+                // Animação especial para os corações
+                heart.style.animation = 'fadeInOut 4s ease-in-out forwards';
+                
+                container.appendChild(heart);
+                
+                // Remover após a animação terminar
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+        }
         
         // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

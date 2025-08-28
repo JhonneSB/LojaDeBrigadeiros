@@ -18,6 +18,8 @@
             --texto: #2D2D2D;
             --sombra: rgba(0, 0, 0, 0.1);
             --rosa-claro: #FFC2D1;
+            --marrom-chocolate-claro: #8B5A3C;
+            --marrom-chocolate-escuro: #4A2C1A;
         }
 
         body {
@@ -29,24 +31,60 @@
             position: relative;
         }
 
-        /* Efeito de gotas de chocolate caindo - CORRIGIDO */
+        /* Efeito de gotas de chocolate melhorado */
         .chocolate-drip {
             position: fixed;
-            width: 20px;
-            height: 30px;
-            background: linear-gradient(to bottom, transparent 0%, var(--marrom-chocolate) 100%);
-            border-radius: 0 0 10px 10px;
             z-index: 0;
-            opacity: 0.6;
-            animation: fall linear forwards;
             pointer-events: none;
             top: -50px;
+            opacity: 0;
+            animation: fall linear forwards;
         }
 
         @keyframes fall {
-            to {
-                transform: translateY(100vh);
+            0% {
+                opacity: 0.8;
+                transform: translateY(0) rotate(0deg);
             }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(5deg);
+            }
+        }
+
+        /* Formato da gota melhorado */
+        .chocolate-drip::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                var(--marrom-chocolate-escuro) 30%, 
+                var(--marrom-chocolate) 70%, 
+                var(--marrom-chocolate-claro) 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 0 5px rgba(139, 90, 60, 0.5);
+            transform-origin: center bottom;
+        }
+
+        /* Efeito de brilho no chocolate */
+        .chocolate-drip::after {
+            content: "";
+            position: absolute;
+            top: 15%;
+            left: 30%;
+            width: 20%;
+            height: 10%;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: rotate(25deg);
         }
 
         .navbar {
@@ -203,8 +241,8 @@
             border: 8px solid var(--branco);
             position: relative;
             overflow: hidden;
-            max-height: 400px; /* Limite de altura para a imagem */
-            object-fit: cover; /* Garante que a imagem mantenha proporções */
+            max-height: 400px;
+            object-fit: cover;
         }
 
         .about-img::before {
@@ -229,7 +267,6 @@
             border: none;
         }
 
-        /* BOTÕES SOCIAIS MELHORADOS */
         .social-btn {
             border-radius: 50px;
             padding: 15px 35px;
@@ -293,7 +330,6 @@
             background-repeat: no-repeat;
         }
 
-        /* Novos estilos para melhorar a harmonia visual */
         .highlight-text {
             color: var(--rosa-pink);
             font-weight: 600;
@@ -324,7 +360,6 @@
             font-size: 28px;
         }
 
-        /* ESTILOS PARA O GATINHO FOFINHO - AGORA NO CANTO SUPERIOR DIREITO */
         .cat-image {
             position: fixed;
             top: 86px;
@@ -346,7 +381,6 @@
             transform: scale(1.1) rotate(5deg);
         }
 
-        /* Mobile - RESPONSIVIDADE MELHORADA */
         @media (max-width: 768px) {
             .hero {
                 padding: 100px 0;
@@ -397,7 +431,7 @@
             
             .about-img {
                 margin-bottom: 30px;
-                max-height: 300px; /* Altura reduzida em mobile */
+                max-height: 300px;
             }
             
             .social-btn {
@@ -419,7 +453,6 @@
                 top: -40px;
             }
 
-            /* Ajustes para o gatinho em mobile */
             .cat-image {
                 width: 60px;
                 right: 90px;
@@ -442,10 +475,9 @@
             }
             
             .about-img {
-                max-height: 250px; /* Altura ainda menor em telas pequenas */
+                max-height: 250px;
             }
 
-            /* Ajustes para o gatinho em telas muito pequenas */
             .cat-image {
                 width: 80px;
                 right: 0px;
@@ -487,7 +519,7 @@
         </div>
     </nav>
 
-    <!-- Gatinho Fofinho - AGORA NO CANTO SUPERIOR DIREITO -->
+    <!-- Gatinho Fofinho -->
     <img src="gatinho.png" class="cat-image" alt="Gatinho fofo" id="catImage">
 
     <!-- Hero Section -->
@@ -588,7 +620,7 @@
                         <i class="fas fa-heart"></i>
                     </div>
                     <h4>Feito com Amor</h4>
-                    <p>Cada brigadeiro é preparado com carinho e atenção aos detalhes</p>
+                    <p>Cada brigadeiro é preparado dengan carinho e atenção aos detalhes</p>
                 </div>
                 
                 <div class="col-md-4 text-center mb-4">
@@ -623,8 +655,6 @@
                     <h2 class="section-title white mb-4" style="font-size: 3rem;">Sobre Nós</h2>
                     <p style="color: var(--branco);">Comecei a fazer brigadeiros como hobby e descobri uma verdadeira paixão pela confeitaria. Hoje me dedico a criar doces com técnica profissional mas mantendo o sabor caseiro que todo mundo ama.</p>
                     <p class="mb-4" style="color: var(--branco);">Cada brigadeiro é feito com ingredientes premium e atenção aos detalhes, garantindo qualidade e sabor excepcionais.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -670,85 +700,91 @@
     </a>
 
     <!-- Footer -->
-    <footer class="py-4">
-        <div class="container text-center">
-            <p class="mb-2">© 2025 Brigadeiros do João. Todos os direitos reservados.</p>
-            <p class="mb-0">
-                Site desenvolvido por <a href="https://portfolio-jhonne.vercel.app/" target="_blank" style="color: var(--branco); text-decoration: underline;">Carlos Jhonne</a>
-            </p>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                    <h4 style="font-family: 'Dancing Script', cursive; font-size: 2rem;">Brigadeiros do João</h4>
+                    <p>Doces artesanais feitos com amor em Timbó - SC</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p>&copy; 2023 Brigadeiros do João. Todos os direitos reservados.</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/jcdepaula14/#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://wa.me/5547991983720" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        // Scroll suave
+        // Função para criar gotas de chocolate
+        function createChocolateDrops() {
+            const container = document.body;
+            const dropCount = 15;
+            
+            for (let i = 0; i < dropCount; i++) {
+                const drop = document.createElement('div');
+                drop.className = 'chocolate-drip';
+                
+                // Tamanho aleatório entre 10 e 25px
+                const size = Math.random() * 15 + 10;
+                drop.style.width = `${size}px`;
+                drop.style.height = `${size * 1.5}px`;
+                
+                // Posição aleatória na tela
+                drop.style.left = `${Math.random() * 100}vw`;
+                
+                // Duração aleatória entre 5 e 15 segundos
+                const duration = Math.random() * 10 + 5;
+                drop.style.animationDuration = `${duration}s`;
+                
+                // Atraso aleatório até 5 segundos
+                const delay = Math.random() * 5;
+                drop.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(drop);
+                
+                // Remover após a animação terminar
+                setTimeout(() => {
+                    drop.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+        
+        // Criar gotas periodicamente
+        setInterval(createChocolateDrops, 3000);
+        
+        // Iniciar algumas gotas imediatamente
+        setTimeout(createChocolateDrops, 1000);
+        
+        // Efeito para o gatinho
+        document.getElementById('catImage').addEventListener('click', function() {
+            this.style.transform = 'rotate(360deg) scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 1000);
+        });
+        
+        // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Botão flutuante aparece após rolar
-        window.addEventListener('scroll', function () {
-            const btn = document.querySelector('.floating-btn');
-            btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-            
-            // Gatinho também aparece junto com o botão
-            const cat = document.getElementById('catImage');
-            cat.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
-
-        // Criar gotas de chocolate caindo - CORRIGIDO
-        function createChocolateDrip() {
-            const drip = document.createElement('div');
-            drip.className = 'chocolate-drip';
-            
-            // Posicionamento aleatório
-            drip.style.left = Math.random() * window.innerWidth + 'px';
-            
-            // Velocidade e tamanho variados para efeito mais natural
-            const duration = Math.random() * 5 + 3;
-            drip.style.animation = `fall ${duration}s linear forwards`;
-            drip.style.width = (Math.random() * 15 + 8) + 'px';
-            drip.style.height = (Math.random() * 40 + 20) + 'px';
-            drip.style.opacity = Math.random() * 0.6 + 0.2;
-            
-            // Adicionar ao body
-            document.body.appendChild(drip);
-            
-            // Remover após a animação
-            setTimeout(() => {
-                if (drip.parentNode) {
-                    drip.parentNode.removeChild(drip);
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            }, duration * 1000 + 100);
-        }
-
-        // Criar gotejamentos periodicamente
-        setInterval(createChocolateDrip, 500);
-        
-        // Iniciar algumas gotas imediatamente
-        for (let i = 0; i < 15; i++) {
-            setTimeout(createChocolateDrip, i * 300);
-        }
-        
-        // Interação com o gatinho
-        document.getElementById('catImage').addEventListener('click', function() {
-            this.style.transform = 'scale(1.2) rotate(10deg)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 500);
-            
-            // Opcional: fazer um miado
-            // const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-cat-meow-119.mp3');
-            // audio.play();
+            });
         });
     </script>
 </body>
-
 </html>

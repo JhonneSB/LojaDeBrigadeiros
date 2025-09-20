@@ -30,6 +30,7 @@
             opacity: 0.6;
             animation: fall linear forwards;
             pointer-events: none;
+            top: -50px;
         }
 
         @keyframes fall {
@@ -181,7 +182,7 @@
         .section-title.white {
             color: var(--branco);
         }
-
+        
         .section-title.white::after {
             background-color: var(--branco);
         }
@@ -192,10 +193,8 @@
             border: 8px solid var(--branco);
             position: relative;
             overflow: hidden;
-            max-height: 400px;
-            /* Limite de altura para a imagem */
-            object-fit: cover;
-            /* Garante que a imagem mantenha proporções */
+            max-height: 400px; /* Limite de altura para a imagem */
+            object-fit: cover; /* Garante que a imagem mantenha proporções */
         }
 
         .about-img::before {
@@ -255,17 +254,9 @@
         }
 
         @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .social-btn i {
@@ -297,7 +288,7 @@
             color: var(--rosa-pink);
             font-weight: 600;
         }
-
+        
         .divider {
             height: 3px;
             background: linear-gradient(to right, transparent, var(--rosa-pink), transparent);
@@ -305,11 +296,11 @@
             margin: 30px auto;
             border-radius: 3px;
         }
-
+        
         .bg-rosa-claro {
             background-color: var(--rosa-claro);
         }
-
+        
         .feature-icon {
             width: 70px;
             height: 70px;
@@ -337,15 +328,8 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .cat-image:hover {
@@ -362,7 +346,7 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-
+            
             .hero p {
                 padding: 0 15px;
             }
@@ -390,23 +374,22 @@
                 transform: translateX(-50%);
                 width: 30%;
             }
-
+            
             .btn-destaque {
                 padding: 10px 20px;
                 font-size: 0.9rem;
                 margin-bottom: 10px;
             }
-
+            
             .navbar-brand span {
                 font-size: 1.5rem !important;
             }
-
+            
             .about-img {
                 margin-bottom: 30px;
-                max-height: 300px;
-                /* Altura reduzida em mobile */
+                max-height: 300px; /* Altura reduzida em mobile */
             }
-
+            
             .social-btn {
                 display: block;
                 width: 100%;
@@ -415,12 +398,12 @@
                 padding: 12px 25px;
                 font-size: 1rem;
             }
-
+            
             footer {
                 padding: 60px 0 20px;
                 text-align: center;
             }
-
+            
             footer::before {
                 height: 80px;
                 top: -40px;
@@ -433,24 +416,23 @@
                 top: 15px;
             }
         }
-
+        
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2rem;
             }
-
+            
             .section-title {
                 font-size: 2rem !important;
             }
-
+            
             .price {
                 font-size: 1rem;
                 padding: 6px 15px;
             }
-
+            
             .about-img {
-                max-height: 250px;
-                /* Altura ainda menor em telas pequenas */
+                max-height: 250px; /* Altura ainda menor em telas pequenas */
             }
 
             /* Ajustes para o gatinho em telas muito pequenas */

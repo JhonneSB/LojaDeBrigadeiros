@@ -18,7 +18,7 @@ window.addEventListener('scroll', function () {
     cat.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
-// Criar gotas de chocolate caindo - CORREÇÃO APLICADA
+// Criar gotas de chocolate caindo - CORRIGIDO
 function createChocolateDrip() {
     const drip = document.createElement('div');
     drip.className = 'chocolate-drip';
@@ -27,7 +27,8 @@ function createChocolateDrip() {
     drip.style.left = Math.random() * window.innerWidth + 'px';
 
     // Velocidade e tamanho variados para efeito mais natural
-    drip.style.animationDuration = (Math.random() * 5 + 3) + 's';
+    const duration = Math.random() * 5 + 3;
+    drip.style.animation = `fall ${duration}s linear forwards`;
     drip.style.width = (Math.random() * 15 + 8) + 'px';
     drip.style.height = (Math.random() * 40 + 20) + 'px';
     drip.style.opacity = Math.random() * 0.6 + 0.2;
@@ -40,7 +41,7 @@ function createChocolateDrip() {
         if (drip.parentNode) {
             drip.parentNode.removeChild(drip);
         }
-    }, 8000);
+    }, duration * 1000 + 100);
 }
 
 // Criar gotejamentos periodicamente
